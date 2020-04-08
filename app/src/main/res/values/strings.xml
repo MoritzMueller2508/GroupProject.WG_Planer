@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="welcome_to_wg_planer">Welcome to WG Planer!</string>
+    <string name="create_a_wg">Create a WG</string>
+    <string name="access_a_wg">Access a WG</string>
+    <string name="sign_in">Sing in</string>
+    <string name="textfield_label"></string>
+    <string name="create_an_account">Create an account</string>
+    <string name="e_mail_Field">E-Mail</string>
+    <string name="password_Field">Password</string>
+    <string name="name_Field">Name</string>
+    <string name="invite_roomie">Invite a roomie</string>
+    <string name="roomie_username">Roomie\'s username</string>
+    <string name="next">Next</string>
+    <string name="create_account">Create account</string>
+    <string name="create_wg">Create WG</string>
+    <string name="wg_name">WG-Name</string>
+    <string name="city">City</string>
+    <string name="adress">Adress</string>
+    <string name="plz">Plz</string>
+    <string name="create_your_wg">Create your WG</string>
+    <string name="log_in">Log In</string>
+</resources>
