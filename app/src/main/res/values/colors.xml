@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="veryLightGreen">#E2F5EA</color>
+    <color name="purple">#6D64CB</color>
+    <color name="violet">#993295</color>
+    <color name="blue">#00C4DE</color>
+    <color name="Roche_color">#007AC2</color>
+</resources>
