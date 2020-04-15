@@ -1,4 +1,16 @@
 # GroupProject.WG_Planer
-This is the branch of "Zusibell". Everything he develops will take place in this branch and will then be pushed to branche "development when finished. In the branch "development" will always be the newest version of the App. If the App in its current state is ready for testing, the App will then be transfered in branche "testing".
+This project is done with the help of AWS Services.
 
-We will NOT work in the branch "master", so that "master" holds just the running, latest version of the App. Later, the "master" branch can, and will only, be merged with the "testing" branch for our group-project of developing an app in university
+1. install all services. Run "npm install" in your terminal.
+2. be sure that amplify is installed running "amplify -version". If not, then install it "npm install -g @aws-amplify/cli"
+
+check this link for more information https://docs.amplify.aws/start/getting-started/installation?integration=android
+
+3. run "amplify configure" and sign in with an IAM user (not root account)
+    aws region: eu-central-1
+    username: <your username>
+    Do not create any profile as you already have access key. Press enter.
+    Enter your access keys
+    Specify profile name to be created in your local machine.
+
+here you can get used to the amplify commands https://aws-amplify.github.io/docs/cli-toolchain/quickstart

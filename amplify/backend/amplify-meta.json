@@ -21,7 +21,7 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-wgplaner-dev-01318-deployment/amplify-cfn-templates/auth/wgplaner99c30e85-cloudformation-template.yml",
 				"logicalId": "authwgplaner99c30e85"
 			},
-			"lastPushTimeStamp": "2020-04-10T22:30:24.247Z",
+			"lastPushTimeStamp": "2020-04-15T09:36:25.928Z",
 			"output": {
 				"AppClientSecret": "i84kj643qbs9jcq0js7ghdk6ds8ckl3ubbsm9i2ra00bj8q04s",
 				"UserPoolId": "eu-central-1_SHcWmiEpM",
@@ -55,8 +55,8 @@
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-wgplaner-dev-01318-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apiwgplaner"
 			},
-			"lastPushTimeStamp": "2020-04-10T22:30:24.247Z",
-			"lastPushDirHash": "mmvl1ra13lUVTp5My8j0UbLAyjU="
+			"lastPushTimeStamp": "2020-04-15T09:36:27.235Z",
+			"lastPushDirHash": "wXOS8VG5i/DJrEJN44aIEu6KX24="
 		}
 	}
 }
