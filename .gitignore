@@ -12,7 +12,6 @@
 /captures
 .externalNativeBuild
 .cxx
-<<<<<<< HEAD
 
 #amplify
 amplify/\#current-cloud-backend
@@ -29,5 +28,4 @@ amplifyconfiguration.json
 amplify-build-config.json
 amplify-gradle-config.json
 amplifyxc.config
-=======
->>>>>>> 62b8ce8bc482f5042dd529e87ea1415c3f59de15
+

@@ -30,4 +30,14 @@
     <string name="create_your_wg">Create your WG</string>
     <string name="log_in">Log In</string>
 
+
+    <string name="access_wg">Access WG</string>
+    <string name="enter_your_wg_code_here">Enter your WG-Code here</string>
+    <string name="search_for_wg">Search for WG</string>
+    <string name="field_for_wg_code">Field for WG-Code</string>
+    <string name="welcome_to_wg_planer">Welcome To WG_Planer</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="register_free">No account? Register for free!</string>
+
 </resources>
