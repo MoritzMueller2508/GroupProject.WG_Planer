@@ -24,3 +24,4 @@ Commit, push and work with the files normally:
         git push                            also: "git push origin <local-branch>:<remote-branch>"
         git push from one remote branch to another      here u can create in GitHub a "pull request" and solve possible merge conflicts
 
+it is also possible to add, commit and push within the Android Studio IDE under VCS -> git
