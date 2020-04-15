@@ -1,4 +1,5 @@
 # GroupProject.WG_Planer
+
 This project is done with the help of AWS Services.
 
 1. install all services. Run "npm install" in your terminal.
