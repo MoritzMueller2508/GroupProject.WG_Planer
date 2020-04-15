@@ -14,3 +14,13 @@ check this link for more information https://docs.amplify.aws/start/getting-star
     Specify profile name to be created in your local machine.
 
 here you can get used to the amplify commands https://aws-amplify.github.io/docs/cli-toolchain/quickstart
+
+# Git:
+
+Commit, push and work with the files normally:
+
+        git add file.iso                    this adds the file that you want to push (do git add . to add everything)
+        git commit -m "Add disk image"      when committing leave a message of what you are committing
+        git push                            also: "git push origin <local-branch>:<remote-branch>"
+        git push from one remote branch to another      here u can create in GitHub a "pull request" and solve possible merge conflicts
+
