@@ -48,7 +48,7 @@
         android:id="@+id/button3"
         android:layout_width="225dp"
         android:layout_height="52dp"
-        android:background="#007AC2"
+        android:background="@color/Roche_color"
         android:fontFamily="@font/open_sans_light"
         android:text="@string/search_for_wg"
         android:textColor="#FFFFFF"
@@ -71,5 +71,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText"
         app:layout_constraintVertical_bias="0.0" />
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/Roche_color"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.66"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/arrow_back_white_18dp" />
+
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
