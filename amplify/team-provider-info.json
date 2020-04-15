@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-wgplaner-dev-01318-authRole",
+            "UnauthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-01318-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-01318-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "amplify-wgplaner-dev-01318-deployment",
+            "UnauthRoleName": "amplify-wgplaner-dev-01318-unauthRole",
+            "StackName": "amplify-wgplaner-dev-01318",
+            "StackId": "arn:aws:cloudformation:eu-central-1:558675597284:stack/amplify-wgplaner-dev-01318/87334e80-7b78-11ea-89ea-0248d60dd6ec",
+            "AmplifyAppId": "d1p8p7lmpt697c"
+        },
+        "categories": {
+            "auth": {
+                "wgplaner99c30e85": {}
+            }
+        }
+    }
+}
