@@ -1,62 +1,44 @@
 {
-	"providers": {
-		"awscloudformation": {
-			"AuthRoleName": "amplify-wgplaner-dev-01318-authRole",
-			"UnauthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-01318-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-01318-authRole",
-			"Region": "eu-central-1",
-			"DeploymentBucketName": "amplify-wgplaner-dev-01318-deployment",
-			"UnauthRoleName": "amplify-wgplaner-dev-01318-unauthRole",
-			"StackName": "amplify-wgplaner-dev-01318",
-			"StackId": "arn:aws:cloudformation:eu-central-1:558675597284:stack/amplify-wgplaner-dev-01318/87334e80-7b78-11ea-89ea-0248d60dd6ec",
-			"AmplifyAppId": "d1p8p7lmpt697c"
-		}
-	},
-	"auth": {
-		"wgplaner99c30e85": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [],
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-wgplaner-dev-01318-deployment/amplify-cfn-templates/auth/wgplaner99c30e85-cloudformation-template.yml",
-				"logicalId": "authwgplaner99c30e85"
-			},
-			"lastPushTimeStamp": "2020-04-15T09:36:25.928Z",
-			"output": {
-				"AppClientSecret": "i84kj643qbs9jcq0js7ghdk6ds8ckl3ubbsm9i2ra00bj8q04s",
-				"UserPoolId": "eu-central-1_SHcWmiEpM",
-				"AppClientIDWeb": "47qcrhipgof7vstjq1ckhap1jl",
-				"AppClientID": "6ddlf8s4s6redpbp9b1g6eutr9",
-				"IdentityPoolId": "eu-central-1:bfc375d9-1a58-43d4-9647-8c083a596b20",
-				"IdentityPoolName": "wgplaner99c30e85_identitypool_99c30e85__dev",
-				"UserPoolName": "wgplaner99c30e85_userpool_99c30e85"
-			},
-			"lastPushDirHash": "/1KMyhXLnlOEF7U6w/Cnt+IrCfc="
-		}
-	},
-	"api": {
-		"wgplaner": {
-			"service": "AppSync",
-			"providerPlugin": "awscloudformation",
-			"output": {
-				"authConfig": {
-					"additionalAuthenticationProviders": [],
-					"defaultAuthentication": {
-						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
-						"userPoolConfig": {
-							"userPoolId": "authwgplaner99c30e85"
-						}
-					}
-				},
-				"GraphQLAPIIdOutput": "branivnqengkjmseunyyryhywu",
-				"GraphQLAPIEndpointOutput": "https://cib2wceapffwvmyk2pw2kmctdu.appsync-api.eu-central-1.amazonaws.com/graphql"
-			},
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-wgplaner-dev-01318-deployment/amplify-cfn-templates/api/cloudformation-template.json",
-				"logicalId": "apiwgplaner"
-			},
-			"lastPushTimeStamp": "2020-04-15T09:36:27.235Z",
-			"lastPushDirHash": "wXOS8VG5i/DJrEJN44aIEu6KX24="
-		}
-	}
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-wgplaner-dev-01318-authRole",
+            "UnauthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-01318-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-01318-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "amplify-wgplaner-dev-01318-deployment",
+            "UnauthRoleName": "amplify-wgplaner-dev-01318-unauthRole",
+            "StackName": "amplify-wgplaner-dev-01318",
+            "StackId": "arn:aws:cloudformation:eu-central-1:558675597284:stack/amplify-wgplaner-dev-01318/87334e80-7b78-11ea-89ea-0248d60dd6ec",
+            "AmplifyAppId": "d1p8p7lmpt697c"
+        },
+        "categories": {
+            "auth": {
+                "wgplaner99c30e85": {}
+            }
+        }
+    },
+    "auth": {
+        "wgplaner99c30e85": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": []
+        }
+    },
+    "api": {
+        "wgplaner": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "authConfig": {
+                    "additionalAuthenticationProviders": [],
+                    "defaultAuthentication": {
+                        "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+                        "userPoolConfig": {
+                            "userPoolId": "authwgplaner99c30e85"
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

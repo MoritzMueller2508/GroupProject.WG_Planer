@@ -7,7 +7,7 @@
     android:background="#FFFFFF">
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btn_LoginScreen"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         app:navigationIcon="@drawable/arrow_back_white_18dp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_washingmachine_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5">
+        app:layout_constraintTop_toBottomOf="@+id/tv_washingmachine_2">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
