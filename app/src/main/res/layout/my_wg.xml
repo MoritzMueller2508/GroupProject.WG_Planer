@@ -21,7 +21,7 @@
         app:navigationIcon="@drawable/arrow_back_white_18dp" />
 
     <TextView
-        android:id="@+id/tv_welcome"
+        android:id="@+id/textView2"
         android:layout_width="147dp"
         android:layout_height="78dp"
         android:layout_marginTop="28dp"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <Button
-        android:id="@+id/btn_calendar"
+        android:id="@+id/button"
         android:layout_width="137dp"
         android:layout_height="89dp"
         android:text="Button"
@@ -49,20 +49,20 @@
         />
 
     <Button
-        android:id="@+id/btn_HouseholdDevices"
+        android:id="@+id/button2"
         android:layout_width="132dp"
         android:layout_height="110dp"
         android:text="Button"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.867"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="0.923" />
+        app:layout_constraintVertical_bias="0.684" />
 
     <Button
-        android:id="@+id/btn_shoppingList"
+        android:id="@+id/button3"
         android:layout_width="117dp"
         android:layout_height="125dp"
         android:text="Button"
@@ -75,7 +75,7 @@
         app:layout_constraintVertical_bias="0.425" />
 
     <Button
-        android:id="@+id/btn_News"
+        android:id="@+id/button4"
         android:layout_width="124dp"
         android:layout_height="146dp"
         android:text="Button"
@@ -123,12 +123,13 @@
         android:layout_width="205dp"
         android:layout_height="185dp"
         android:layout_marginStart="19dp"
+        android:layout_marginLeft="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_HouseholdDevices"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.417"
         app:srcCompat="@drawable/gerate" />
 
     <ImageView

@@ -16,5 +16,23 @@
                 "wgplaner99c30e85": {}
             }
         }
+    },
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-wgplaner-prod-125503-authRole",
+            "UnauthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-prod-125503-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-prod-125503-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "amplify-wgplaner-prod-125503-deployment",
+            "UnauthRoleName": "amplify-wgplaner-prod-125503-unauthRole",
+            "StackName": "amplify-wgplaner-prod-125503",
+            "StackId": "arn:aws:cloudformation:eu-central-1:558675597284:stack/amplify-wgplaner-prod-125503/903c21e0-7f07-11ea-82c0-0ac5bdeb388c",
+            "AmplifyAppId": "d1p8p7lmpt697c"
+        },
+        "categories": {
+            "auth": {
+                "wgplaner99c30e85": {}
+            }
+        }
     }
 }

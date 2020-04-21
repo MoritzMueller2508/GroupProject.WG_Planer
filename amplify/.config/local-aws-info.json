@@ -3,5 +3,10 @@
         "configLevel": "project",
         "useProfile": true,
         "profileName": "admin"
+    },
+    "prod": {
+        "configLevel": "project",
+        "useProfile": true,
+        "profileName": "admin"
     }
 }
