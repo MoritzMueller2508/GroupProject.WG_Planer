@@ -51,5 +51,3 @@ dependencies {
     implementation 'com.amplifyframework:aws-analytics-pinpoint:0.10.0'
 
 }
-
-

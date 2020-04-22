@@ -1,25 +1,27 @@
 package com.example.wgplaner;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 public class MainActivity extends AppCompatActivity {
-
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "onCreate: Creating");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_menu);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+/**
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        **/
+
+    loginScreenButton_HomeMenu();
+    registerScreenButton_HomeMenu();
+
+
+
     }
 
     @Override
@@ -50,5 +59,29 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void loginScreenButton_HomeMenu(){
+
+        Button navToLoginScreen = (Button) findViewById(R.id.btn_logInHome);
+        navToLoginScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LoginScreen.class));
+            }
+        });
+
+
+    }
+
+    public void registerScreenButton_HomeMenu(){
+
+        Button navToRegisterScreen = (Button) findViewById(R.id.btn_register);
+        navToRegisterScreen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CreateAccount.class));
+            }
+        });
     }
 }

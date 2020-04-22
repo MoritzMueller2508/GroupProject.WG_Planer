@@ -1,5 +1,9 @@
 {
-    "projectPath": "C:\\Users\\zusibell.jimenez\\Development\\AndroidStudioProjects\\WGPlaner",
+  {"projectPath": "C:\\Users\\zusibell.jimenez\\Development\\AndroidStudioProjects\\WGPlaner",
     "envName": "dev",
-    "defaultEditor": "vscode"
+    "defaultEditor": "vscode"}
+
+{ "projectPath": "C:\\Users\\Moritz\\Documents\\GroupProject.WG_Planer",
+    "defaultEditor": "vscode",
+    "envName": "dev"}
 }
