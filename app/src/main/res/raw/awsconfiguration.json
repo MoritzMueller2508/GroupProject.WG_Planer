@@ -7,16 +7,16 @@
     "CredentialsProvider": {
         "CognitoIdentity": {
             "Default": {
-                "PoolId": "eu-central-1:bfc375d9-1a58-43d4-9647-8c083a596b20",
+                "PoolId": "eu-central-1:4425f55c-837c-4486-94da-665fd5b87ce6",
                 "Region": "eu-central-1"
             }
         }
     },
     "CognitoUserPool": {
         "Default": {
-            "PoolId": "eu-central-1_SHcWmiEpM",
-            "AppClientId": "6ddlf8s4s6redpbp9b1g6eutr9",
-            "AppClientSecret": "i84kj643qbs9jcq0js7ghdk6ds8ckl3ubbsm9i2ra00bj8q04s",
+            "PoolId": "eu-central-1_HA50ECxEg",
+            "AppClientId": "1vlmpatoclg7be762baijdu090",
+            "AppClientSecret": "ect5olnn8434jkuq8pqm6h1nn8rv91ehu54937chsr0eamimd5k",
             "Region": "eu-central-1"
         }
     },
@@ -27,7 +27,7 @@
     },
     "AppSync": {
         "Default": {
-            "ApiUrl": "https://cib2wceapffwvmyk2pw2kmctdu.appsync-api.eu-central-1.amazonaws.com/graphql",
+            "ApiUrl": "https://oonttymsgfhjpbgwlrm5bf75ha.appsync-api.eu-central-1.amazonaws.com/graphql",
             "Region": "eu-central-1",
             "AuthMode": "AMAZON_COGNITO_USER_POOLS",
             "ClientDatabasePrefix": "wgplaner_AMAZON_COGNITO_USER_POOLS"

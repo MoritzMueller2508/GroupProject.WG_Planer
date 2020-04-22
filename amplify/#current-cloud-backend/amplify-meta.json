@@ -1,42 +1,44 @@
 {
 	"providers": {
 		"awscloudformation": {
-			"AuthRoleName": "amplify-wgplaner-dev-01318-authRole",
-			"UnauthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-01318-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-01318-authRole",
+			"AuthRoleName": "amplify-wgplaner-dev-162427-authRole",
+			"UnauthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-162427-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-162427-authRole",
 			"Region": "eu-central-1",
-			"DeploymentBucketName": "amplify-wgplaner-dev-01318-deployment",
-			"UnauthRoleName": "amplify-wgplaner-dev-01318-unauthRole",
-			"StackName": "amplify-wgplaner-dev-01318",
-			"StackId": "arn:aws:cloudformation:eu-central-1:558675597284:stack/amplify-wgplaner-dev-01318/87334e80-7b78-11ea-89ea-0248d60dd6ec",
-			"AmplifyAppId": "d1p8p7lmpt697c"
-		},
-		"categories": {
-			"auth": {
-				"wgplaner99c30e85": {}
-			}
+			"DeploymentBucketName": "amplify-wgplaner-dev-162427-deployment",
+			"UnauthRoleName": "amplify-wgplaner-dev-162427-unauthRole",
+			"StackName": "amplify-wgplaner-dev-162427",
+			"StackId": "arn:aws:cloudformation:eu-central-1:558675597284:stack/amplify-wgplaner-dev-162427/f9710ca0-84a4-11ea-ad59-0a24e2904074",
+			"AmplifyAppId": "dv73c75e1muv8"
+		}
+	},
+	"hosting": {
+		"amplifyhosting": {
+			"service": "amplifyhosting",
+			"type": "cicd",
+			"lastPushTimeStamp": "2020-04-22T14:25:30.581Z"
 		}
 	},
 	"auth": {
-		"wgplaner99c30e85": {
+		"wgplaner16bc2e02": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],
-			"output": {
-				"AppClientSecret": "i84kj643qbs9jcq0js7ghdk6ds8ckl3ubbsm9i2ra00bj8q04s",
-				"UserPoolId": "eu-central-1_SHcWmiEpM",
-				"AppClientIDWeb": "47qcrhipgof7vstjq1ckhap1jl",
-				"AppClientID": "6ddlf8s4s6redpbp9b1g6eutr9",
-				"IdentityPoolId": "eu-central-1:bfc375d9-1a58-43d4-9647-8c083a596b20",
-				"IdentityPoolName": "wgplaner99c30e85_identitypool_99c30e85__dev",
-				"UserPoolName": "wgplaner99c30e85_userpool_99c30e85"
-			},
-			"lastPushTimeStamp": "2020-04-15T15:37:49.783Z",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-wgplaner-dev-01318-deployment/amplify-cfn-templates/auth/wgplaner99c30e85-cloudformation-template.yml",
-				"logicalId": "authwgplaner99c30e85"
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-wgplaner-dev-162427-deployment/amplify-cfn-templates/auth/wgplaner16bc2e02-cloudformation-template.yml",
+				"logicalId": "authwgplaner16bc2e02"
 			},
-			"lastPushDirHash": "/1KMyhXLnlOEF7U6w/Cnt+IrCfc="
+			"lastPushTimeStamp": "2020-04-22T14:56:53.316Z",
+			"output": {
+				"AppClientSecret": "ect5olnn8434jkuq8pqm6h1nn8rv91ehu54937chsr0eamimd5k",
+				"UserPoolId": "eu-central-1_HA50ECxEg",
+				"AppClientIDWeb": "495coqd3qirprteic26cm2g1aj",
+				"AppClientID": "1vlmpatoclg7be762baijdu090",
+				"IdentityPoolId": "eu-central-1:4425f55c-837c-4486-94da-665fd5b87ce6",
+				"IdentityPoolName": "wgplaner16bc2e02_identitypool_16bc2e02__dev",
+				"UserPoolName": "wgplaner16bc2e02_userpool_16bc2e02"
+			},
+			"lastPushDirHash": "7Bh0j+H2Jl2CC8kb26Y6XZyuLVE="
 		}
 	},
 	"api": {
@@ -49,19 +51,19 @@
 					"defaultAuthentication": {
 						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
 						"userPoolConfig": {
-							"userPoolId": "authwgplaner99c30e85"
+							"userPoolId": "authwgplaner16bc2e02"
 						}
 					}
 				},
-				"GraphQLAPIIdOutput": "branivnqengkjmseunyyryhywu",
-				"GraphQLAPIEndpointOutput": "https://cib2wceapffwvmyk2pw2kmctdu.appsync-api.eu-central-1.amazonaws.com/graphql"
+				"GraphQLAPIIdOutput": "yeoxtb6mbve4vlcf5rteixxcua",
+				"GraphQLAPIEndpointOutput": "https://oonttymsgfhjpbgwlrm5bf75ha.appsync-api.eu-central-1.amazonaws.com/graphql"
 			},
-			"lastPushTimeStamp": "2020-04-15T15:37:49.783Z",
 			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplify-wgplaner-dev-01318-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-wgplaner-dev-162427-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apiwgplaner"
 			},
-			"lastPushDirHash": "JMMHDjvMEH4QfmVHcOn5AUbIIAo="
+			"lastPushTimeStamp": "2020-04-22T14:56:53.316Z",
+			"lastPushDirHash": "9IxmEYCmonxfPdbzbeTzNvgLMcU="
 		}
 	}
 }

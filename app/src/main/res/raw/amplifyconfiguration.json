@@ -6,7 +6,7 @@
             "awsAPIPlugin": {
                 "wgplaner": {
                     "endpointType": "GraphQL",
-                    "endpoint": "https://cib2wceapffwvmyk2pw2kmctdu.appsync-api.eu-central-1.amazonaws.com/graphql",
+                    "endpoint": "https://oonttymsgfhjpbgwlrm5bf75ha.appsync-api.eu-central-1.amazonaws.com/graphql",
                     "region": "eu-central-1",
                     "authorizationType": "AMAZON_COGNITO_USER_POOLS"
                 }
