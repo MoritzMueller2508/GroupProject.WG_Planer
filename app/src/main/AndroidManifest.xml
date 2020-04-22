@@ -16,13 +16,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-
+        <activity android:name=".News"></activity>
+        <activity android:name=".HouseholdDevices" />
+        <activity android:name=".Calendar" />
+        <activity android:name=".ShoppingList" />
+        <activity android:name=".MyWg" />
+        <activity android:name=".AccessWg" />
+        <activity android:name=".CreateWg" />
+        <activity android:name=".CreateAccount" />
+        <activity android:name=".MainMenu" />
+        <activity android:name=".LoginScreen" />
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />
-
-
 
         <activity
             android:name=".MainActivity"
@@ -34,8 +39,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".LoginScreen"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_hDevices"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans_light"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.099" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/et_wgCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="376dp"
@@ -38,7 +38,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hDevices"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore ="HardcodedText,LabelFor"
 
@@ -51,16 +51,16 @@
         android:background="@color/Roche_color"
         android:fontFamily="@font/open_sans_light"
         android:text="@string/search_for_wg"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintBottom_toTopOf="@+id/et_wgCode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hDevices"
         app:layout_constraintVertical_bias="0.87" />
 
     <TextView
-        android:id="@+id/tv_washingmachine_2"
+        android:id="@+id/tv_enterWgCode"
         android:layout_width="331dp"
         android:layout_height="32dp"
         android:fontFamily="@font/open_sans_light"
@@ -69,7 +69,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/et_wgCode"
         app:layout_constraintVertical_bias="0.0" />
 
 
