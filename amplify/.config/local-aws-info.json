@@ -4,7 +4,7 @@
         "useProfile": true,
         "profileName": "admin"
     },
-    "prod": {
+    "deve": {
         "configLevel": "project",
         "useProfile": true,
         "profileName": "admin"

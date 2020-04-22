@@ -1,31 +1,200 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateTodo(
-  $input: CreateTodoInput!
-  $condition: ModelTodoConditionInput
+mutation AddWg(
+  $id: ID!
+  $name: String!
+  $address: String!
+  $city: String!
+  $plz: String!
 ) {
-  createTodo(input: $input, condition: $condition) {
+  addWG(id: $id, name: $name, address: $address, city: $city, plz: $plz) {
     id
     name
-    description
+    address
+    city
+    plz
   }
 }
-mutation UpdateTodo(
-  $input: UpdateTodoInput!
-  $condition: ModelTodoConditionInput
+mutation AddUser(
+  $id: ID!
+  $name: String!
+  $email: String!
+  $password: String!
 ) {
-  updateTodo(input: $input, condition: $condition) {
+  addUser(id: $id, name: $name, email: $email, password: $password) {
     id
     name
-    description
+    email
+    password
   }
 }
-mutation DeleteTodo(
-  $input: DeleteTodoInput!
-  $condition: ModelTodoConditionInput
-) {
-  deleteTodo(input: $input, condition: $condition) {
+mutation AddShoppingList($id: ID!, $itemName: String!, $value: Int) {
+  addShoppingList(id: $id, itemName: $itemName, value: $value) {
+    id
+    itemName
+    value
+  }
+}
+mutation AddHouseholdDevice($id: ID!, $deviceName: String!, $value: Int) {
+  addHouseholdDevice(id: $id, deviceName: $deviceName, value: $value) {
+    id
+    deviceName
+    value
+  }
+}
+mutation AddNews($id: ID!, $title: String!, $text: String) {
+  addNews(id: $id, title: $title, text: $text) {
+    id
+    title
+    text
+  }
+}
+mutation CreateWg($input: CreateWGInput!, $condition: ModelWGConditionInput) {
+  createWG(input: $input, condition: $condition) {
     id
     name
-    description
+    address
+    city
+    plz
+  }
+}
+mutation UpdateWg($input: UpdateWGInput!, $condition: ModelWGConditionInput) {
+  updateWG(input: $input, condition: $condition) {
+    id
+    name
+    address
+    city
+    plz
+  }
+}
+mutation DeleteWg($input: DeleteWGInput!, $condition: ModelWGConditionInput) {
+  deleteWG(input: $input, condition: $condition) {
+    id
+    name
+    address
+    city
+    plz
+  }
+}
+mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  createUser(input: $input, condition: $condition) {
+    id
+    name
+    email
+    password
+  }
+}
+mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  updateUser(input: $input, condition: $condition) {
+    id
+    name
+    email
+    password
+  }
+}
+mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
+) {
+  deleteUser(input: $input, condition: $condition) {
+    id
+    name
+    email
+    password
+  }
+}
+mutation CreateShoppingList(
+  $input: CreateShoppingListInput!
+  $condition: ModelShoppingListConditionInput
+) {
+  createShoppingList(input: $input, condition: $condition) {
+    id
+    itemName
+    value
+  }
+}
+mutation UpdateShoppingList(
+  $input: UpdateShoppingListInput!
+  $condition: ModelShoppingListConditionInput
+) {
+  updateShoppingList(input: $input, condition: $condition) {
+    id
+    itemName
+    value
+  }
+}
+mutation DeleteShoppingList(
+  $input: DeleteShoppingListInput!
+  $condition: ModelShoppingListConditionInput
+) {
+  deleteShoppingList(input: $input, condition: $condition) {
+    id
+    itemName
+    value
+  }
+}
+mutation CreateHouseholdDevices(
+  $input: CreateHouseholdDevicesInput!
+  $condition: ModelHouseholdDevicesConditionInput
+) {
+  createHouseholdDevices(input: $input, condition: $condition) {
+    id
+    deviceName
+    value
+  }
+}
+mutation UpdateHouseholdDevices(
+  $input: UpdateHouseholdDevicesInput!
+  $condition: ModelHouseholdDevicesConditionInput
+) {
+  updateHouseholdDevices(input: $input, condition: $condition) {
+    id
+    deviceName
+    value
+  }
+}
+mutation DeleteHouseholdDevices(
+  $input: DeleteHouseholdDevicesInput!
+  $condition: ModelHouseholdDevicesConditionInput
+) {
+  deleteHouseholdDevices(input: $input, condition: $condition) {
+    id
+    deviceName
+    value
+  }
+}
+mutation CreateNews(
+  $input: CreateNewsInput!
+  $condition: ModelNewsConditionInput
+) {
+  createNews(input: $input, condition: $condition) {
+    id
+    title
+    text
+  }
+}
+mutation UpdateNews(
+  $input: UpdateNewsInput!
+  $condition: ModelNewsConditionInput
+) {
+  updateNews(input: $input, condition: $condition) {
+    id
+    title
+    text
+  }
+}
+mutation DeleteNews(
+  $input: DeleteNewsInput!
+  $condition: ModelNewsConditionInput
+) {
+  deleteNews(input: $input, condition: $condition) {
+    id
+    title
+    text
   }
 }
