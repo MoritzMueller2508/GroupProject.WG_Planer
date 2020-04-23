@@ -3,10 +3,5 @@
         "configLevel": "project",
         "useProfile": true,
         "profileName": "admin"
-    },
-    "wgdev": {
-        "configLevel": "project",
-        "useProfile": true,
-        "profileName": "admin"
     }
 }
