@@ -1,21 +1,3 @@
-type Query {
-  get_WG: [WG]
-  get_User: [User]
-  get_ShoppingList: [ShoppingList]
-  get_HouseholdDevice: [HouseholdDevices]
-  get_News: [News]
-  getWG(id: ID!): WG
-  listWGs(filter: ModelWGFilterInput, limit: Int, nextToken: String): ModelWGConnection
-  getUser(id: ID!): User
-  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection
-  getShoppingList(id: ID!): ShoppingList
-  listShoppingLists(filter: ModelShoppingListFilterInput, limit: Int, nextToken: String): ModelShoppingListConnection
-  getHouseholdDevices(id: ID!): HouseholdDevices
-  listHouseholdDevicess(filter: ModelHouseholdDevicesFilterInput, limit: Int, nextToken: String): ModelHouseholdDevicesConnection
-  getNews(id: ID!): News
-  listNewss(filter: ModelNewsFilterInput, limit: Int, nextToken: String): ModelNewsConnection
-}
-
 type Mutation {
   addWG(id: ID!, name: String!, address: String!, city: String!, plz: String!): WG
   addUser(id: ID!, name: String!, email: String!, password: String!): User
@@ -164,6 +146,19 @@ input ModelWGFilterInput {
   and: [ModelWGFilterInput]
   or: [ModelWGFilterInput]
   not: ModelWGFilterInput
+}
+
+type Query {
+  getWG(id: ID!): WG
+  listWGs(filter: ModelWGFilterInput, limit: Int, nextToken: String): ModelWGConnection
+  getUser(id: ID!): User
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection
+  getShoppingList(id: ID!): ShoppingList
+  listShoppingLists(filter: ModelShoppingListFilterInput, limit: Int, nextToken: String): ModelShoppingListConnection
+  getHouseholdDevices(id: ID!): HouseholdDevices
+  listHouseholdDevicess(filter: ModelHouseholdDevicesFilterInput, limit: Int, nextToken: String): ModelHouseholdDevicesConnection
+  getNews(id: ID!): News
+  listNewss(filter: ModelNewsFilterInput, limit: Int, nextToken: String): ModelNewsConnection
 }
 
 input CreateWGInput {

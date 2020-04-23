@@ -10,5 +10,5 @@
         ]
     },
     "S3DeploymentBucket": "amplify-wgplaner-dev-162427-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/3bedf17f8f6d578cb3fb2e2b5fd49b35f6052ef4"
+    "S3DeploymentRootKey": "amplify-appsync-files/981b1ca91c974585877199151f4beae3d28adf6d"
 }

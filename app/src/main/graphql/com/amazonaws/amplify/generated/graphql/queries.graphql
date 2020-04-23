@@ -1,42 +1,4 @@
 # this is an auto generated file. This will be overwritten
-query GetWg {
-  get_WG {
-    id
-    name
-    address
-    city
-    plz
-  }
-}
-query GetUser {
-  get_User {
-    id
-    name
-    email
-    password
-  }
-}
-query GetShoppingList {
-  get_ShoppingList {
-    id
-    itemName
-    value
-  }
-}
-query GetHouseholdDevice {
-  get_HouseholdDevice {
-    id
-    deviceName
-    value
-  }
-}
-query GetNews {
-  get_News {
-    id
-    title
-    text
-  }
-}
 query GetWg($id: ID!) {
   getWG(id: $id) {
     id

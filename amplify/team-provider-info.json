@@ -40,8 +40,31 @@
                 }
             },
             "auth": {
-                "wgplaner2930604c": {},
                 "wgplaner16bc2e02": {}
+            }
+        }
+    },
+    "wgdev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-wgplaner-wgdev-182246-authRole",
+            "UnauthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-wgdev-182246-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-wgdev-182246-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "amplify-wgplaner-wgdev-182246-deployment",
+            "UnauthRoleName": "amplify-wgplaner-wgdev-182246-unauthRole",
+            "StackName": "amplify-wgplaner-wgdev-182246",
+            "StackId": "arn:aws:cloudformation:eu-central-1:558675597284:stack/amplify-wgplaner-wgdev-182246/ab9b0be0-857e-11ea-a2ab-025bd1eb3930",
+            "AmplifyAppId": "dv73c75e1muv8"
+        },
+        "categories": {
+            "auth": {
+                "wgplaner16bc2e02": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "dv73c75e1muv8",
+                    "type": "cicd"
+                }
             }
         }
     }

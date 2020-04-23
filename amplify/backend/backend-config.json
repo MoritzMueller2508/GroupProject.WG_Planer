@@ -1,10 +1,5 @@
 {
 	"auth": {
-		"wgplaner99c30e85": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": []
-		},
 		"wgplaner16bc2e02": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
