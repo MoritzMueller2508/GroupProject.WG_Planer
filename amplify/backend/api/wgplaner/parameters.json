@@ -1,0 +1,11 @@
+{
+    "AppSyncApiName": "wgplaner",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": "false",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authwgplaner16bc2e02",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

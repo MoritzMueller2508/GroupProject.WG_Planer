@@ -1,0 +1,45 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Mutation {
+    addWG(id:ID!, name: String!, address: String!, city: String!, plz: String!):WG
+    addUser(id: ID!, name: String!, email: String!, password: String!): User
+    addShoppingList(id: ID!, itemName: String!, value: Int): ShoppingList
+    addHouseholdDevice(id: ID!, deviceName: String!, value: Int):HouseholdDevices
+    addNews(id: ID!, title: String!, text: String):News
+}
+
+type WG @model  {
+    id:ID!
+    name: String!
+    address: String!
+    city: String!
+    plz: Int!
+}
+
+type User @model  {
+    id: ID!
+    name: String!
+    email: String!
+    password: String!
+}
+
+type ShoppingList @model  {
+    id: ID!
+    itemName: String!
+    value: Int
+}
+
+type HouseholdDevices @model  {
+    id: ID!
+    deviceName: String!
+    value: Int
+}
+
+type News @model  {
+    id: ID!
+    title: String!
+    text: String
+}
