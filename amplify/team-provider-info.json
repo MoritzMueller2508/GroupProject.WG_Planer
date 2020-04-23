@@ -1,71 +1,47 @@
 {
-    "prod": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-wgplaner-prod-154653-authRole",
-            "UnauthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-prod-154653-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-prod-154653-authRole",
-            "Region": "eu-central-1",
-            "DeploymentBucketName": "amplify-wgplaner-prod-154653-deployment",
-            "UnauthRoleName": "amplify-wgplaner-prod-154653-unauthRole",
-            "StackName": "amplify-wgplaner-prod-154653",
-            "StackId": "arn:aws:cloudformation:eu-central-1:558675597284:stack/amplify-wgplaner-prod-154653/b9db1270-849f-11ea-b354-06fecd730058",
-            "AmplifyAppId": "dv73c75e1muv8"
-        },
-        "categories": {
-            "hosting": {
-                "amplifyhosting": {
-                    "appId": "dv73c75e1muv8",
-                    "type": "cicd"
-                }
-            }
-        }
-    },
-    "dev": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-wgplaner-dev-162427-authRole",
-            "UnauthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-162427-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-162427-authRole",
-            "Region": "eu-central-1",
-            "DeploymentBucketName": "amplify-wgplaner-dev-162427-deployment",
-            "UnauthRoleName": "amplify-wgplaner-dev-162427-unauthRole",
-            "StackName": "amplify-wgplaner-dev-162427",
-            "StackId": "arn:aws:cloudformation:eu-central-1:558675597284:stack/amplify-wgplaner-dev-162427/f9710ca0-84a4-11ea-ad59-0a24e2904074",
-            "AmplifyAppId": "dv73c75e1muv8"
-        },
-        "categories": {
-            "hosting": {
-                "amplifyhosting": {
-                    "appId": "dv73c75e1muv8",
-                    "type": "cicd"
-                }
-            },
-            "auth": {
-                "wgplaner16bc2e02": {}
-            }
-        }
-    },
-    "wgdev": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-wgplaner-wgdev-182246-authRole",
-            "UnauthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-wgdev-182246-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-wgdev-182246-authRole",
-            "Region": "eu-central-1",
-            "DeploymentBucketName": "amplify-wgplaner-wgdev-182246-deployment",
-            "UnauthRoleName": "amplify-wgplaner-wgdev-182246-unauthRole",
-            "StackName": "amplify-wgplaner-wgdev-182246",
-            "StackId": "arn:aws:cloudformation:eu-central-1:558675597284:stack/amplify-wgplaner-wgdev-182246/ab9b0be0-857e-11ea-a2ab-025bd1eb3930",
-            "AmplifyAppId": "dv73c75e1muv8"
-        },
-        "categories": {
-            "auth": {
-                "wgplaner16bc2e02": {}
-            },
-            "hosting": {
-                "amplifyhosting": {
-                    "appId": "dv73c75e1muv8",
-                    "type": "cicd"
-                }
-            }
-        }
-    }
+	"prod": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-wgplaner-prod-154653-authRole",
+			"UnauthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-prod-154653-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-prod-154653-authRole",
+			"Region": "eu-central-1",
+			"DeploymentBucketName": "amplify-wgplaner-prod-154653-deployment",
+			"UnauthRoleName": "amplify-wgplaner-prod-154653-unauthRole",
+			"StackName": "amplify-wgplaner-prod-154653",
+			"StackId": "arn:aws:cloudformation:eu-central-1:558675597284:stack/amplify-wgplaner-prod-154653/b9db1270-849f-11ea-b354-06fecd730058",
+			"AmplifyAppId": "dv73c75e1muv8"
+		},
+		"categories": {
+			"hosting": {
+				"amplifyhosting": {
+					"appId": "dv73c75e1muv8",
+					"type": "cicd"
+				}
+			}
+		}
+	},
+	"dev": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-wgplaner-dev-162427-authRole",
+			"UnauthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-162427-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::558675597284:role/amplify-wgplaner-dev-162427-authRole",
+			"Region": "eu-central-1",
+			"DeploymentBucketName": "amplify-wgplaner-dev-162427-deployment",
+			"UnauthRoleName": "amplify-wgplaner-dev-162427-unauthRole",
+			"StackName": "amplify-wgplaner-dev-162427",
+			"StackId": "arn:aws:cloudformation:eu-central-1:558675597284:stack/amplify-wgplaner-dev-162427/f9710ca0-84a4-11ea-ad59-0a24e2904074",
+			"AmplifyAppId": "dv73c75e1muv8"
+		},
+		"categories": {
+			"hosting": {
+				"amplifyhosting": {
+					"appId": "dv73c75e1muv8",
+					"type": "cicd"
+				}
+			},
+			"auth": {
+				"wgplaner16bc2e02": {}
+			}
+		}
+	}
 }
