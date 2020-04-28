@@ -23,6 +23,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 
 }
 
@@ -48,5 +52,12 @@ dependencies {
 
     implementation 'com.amplifyframework:core:0.10.0'
     implementation 'com.amplifyframework:aws-analytics-pinpoint:0.10.0'
+    //For AWSMobileClient only:
+    implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.16.+'
+    //For the drop-in UI also:
+    implementation 'com.amazonaws:aws-android-sdk-auth-userpools:2.16.+'
+    implementation 'com.amazonaws:aws-android-sdk-auth-ui:2.16.+'
+    //For hosted UI also:
+    implementation 'com.amazonaws:aws-android-sdk-cognitoauth:2.16.+'
 
 }
