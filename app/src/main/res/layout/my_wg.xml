@@ -21,21 +21,21 @@
         app:navigationIcon="@drawable/arrow_back_white_18dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_MyWG"
         android:layout_width="147dp"
         android:layout_height="78dp"
         android:layout_marginTop="28dp"
 
-        android:text="My WG"
+        android:text="@string/my_wg"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.208"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
-
+<!--
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_WgToCalendar"
         android:layout_width="137dp"
         android:layout_height="89dp"
         android:text="Button"
@@ -49,7 +49,7 @@
         />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_HouseHoldDevices"
         android:layout_width="132dp"
         android:layout_height="110dp"
         android:text="Button"
@@ -62,7 +62,7 @@
         app:layout_constraintVertical_bias="0.684" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_ShoppingList"
         android:layout_width="117dp"
         android:layout_height="125dp"
         android:text="Button"
@@ -75,7 +75,7 @@
         app:layout_constraintVertical_bias="0.425" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn_News"
         android:layout_width="124dp"
         android:layout_height="146dp"
         android:text="Button"
@@ -87,63 +87,55 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
         app:layout_constraintVertical_bias="0.867" />
 
+    -->
+
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_Calendar"
         android:layout_width="181dp"
         android:layout_height="204dp"
-        android:layout_marginStart="235dp"
-        android:layout_marginLeft="235dp"
-        android:layout_marginTop="141dp"
-        android:layout_marginEnd="54dp"
-        android:layout_marginRight="54dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.054"
+        app:layout_constraintVertical_bias="0.29"
         app:srcCompat="@drawable/kalender" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/iv_ShoppingList"
         android:layout_width="243dp"
         android:layout_height="199dp"
-        android:layout_marginEnd="18dp"
-        android:layout_marginRight="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="0.413"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.464"
         app:srcCompat="@drawable/einkaufswagen" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/iv_HouseholdDevices"
         android:layout_width="205dp"
         android:layout_height="185dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginLeft="19dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.978"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.417"
+        app:layout_constraintTop_toBottomOf="@+id/iv_Calendar"
+        app:layout_constraintVertical_bias="0.372"
         app:srcCompat="@drawable/gerate" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/iv_News"
         android:layout_width="228dp"
         android:layout_height="224dp"
-        android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_ShoppingList"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/news" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,12 +14,12 @@ public class LoginScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_in);
 
-        logInToMenu();
+        LogInToMenu();
 
 
     }
 
-    public void logInToMenu(){
+    public void LogInToMenu(){
         Button navLogIn_To_Menu = (Button) findViewById(R.id.btn_logIn);
         navLogIn_To_Menu.setOnClickListener(new View.OnClickListener() {
             @Override

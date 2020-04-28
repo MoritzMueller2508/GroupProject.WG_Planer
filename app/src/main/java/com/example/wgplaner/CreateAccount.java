@@ -14,10 +14,10 @@ public class CreateAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_account);
 
-       createAccountToMenu();
+       CreateAccountToMenu();
     }
 
-    public void createAccountToMenu(){
+    public void CreateAccountToMenu(){
 
         Button navCreateAcc_To_MainMenu = (Button) findViewById(R.id.btn_createAcc);
         navCreateAcc_To_MainMenu.setOnClickListener(new View.OnClickListener() {

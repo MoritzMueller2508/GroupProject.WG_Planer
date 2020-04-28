@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         });
         **/
 
-    loginScreenButton_HomeMenu();
-    registerScreenButton_HomeMenu();
+    LoginScreenButton_HomeMenu();
+    RegisterScreenButton_HomeMenu();
 
 
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void loginScreenButton_HomeMenu(){
+    public void LoginScreenButton_HomeMenu(){
 
         Button navToLoginScreen = (Button) findViewById(R.id.btn_logInHome);
         navToLoginScreen.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void registerScreenButton_HomeMenu(){
+    public void RegisterScreenButton_HomeMenu(){
 
         Button navToRegisterScreen = (Button) findViewById(R.id.btn_register);
         navToRegisterScreen.setOnClickListener(new View.OnClickListener() {

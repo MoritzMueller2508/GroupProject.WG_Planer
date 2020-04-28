@@ -17,7 +17,7 @@ public class MainMenu extends AppCompatActivity {
         MenuToCreateWG();
         MenuToAccessWG();
         MenuToLogout();
-       // MenuToMyWG();
+        MenuToMyWG();
     }
     public void MenuToCreateWG(){
 
@@ -54,5 +54,17 @@ public class MainMenu extends AppCompatActivity {
 
     }
 
-    //public void
+    public void MenuToMyWG(){
+
+        Button navMainMenu_To_MyWG = (Button) findViewById(R.id.btn_myWg_menu);
+        navMainMenu_To_MyWG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainMenu.this, MyWg.class));
+
+
+            }
+        });
+
+    }
 }

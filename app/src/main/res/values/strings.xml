@@ -49,7 +49,7 @@
     <string name="dryer_3">Dryer 3:</string>
     <string name="washing_machine_4">Washing Machine 4:</string>
     <string name="menu">Menu</string>
-    <string name="my_wg">My WG</string>
     <string name="logout">Logout</string>
+    <string name="my_wg">My WG</string>
 
 </resources>
