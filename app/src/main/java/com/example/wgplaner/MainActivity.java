@@ -9,18 +9,19 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: Creating");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_menu);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        /**Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);**/
+
 /**
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -32,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
         });
         **/
 
-    loginScreenButton_HomeMenu();
-    registerScreenButton_HomeMenu();
 
 
+        loginScreenButton_HomeMenu();
+        registerScreenButton_HomeMenu();
 
     }
 
@@ -84,4 +85,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

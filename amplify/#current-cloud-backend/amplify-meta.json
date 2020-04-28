@@ -37,12 +37,11 @@
 				"IdentityPoolName": "wgplaner16bc2e02_identitypool_16bc2e02__dev",
 				"UserPoolName": "wgplaner16bc2e02_userpool_16bc2e02"
 			},
-			"lastPushTimeStamp": "2020-04-23T18:26:32.851Z",
+			"lastPushTimeStamp": "2020-04-28T23:39:05.673Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-wgplaner-dev-162427-deployment/amplify-cfn-templates/auth/wgplaner16bc2e02-cloudformation-template.yml",
 				"logicalId": "authwgplaner16bc2e02"
-			},
-			"lastPushDirHash": "7Bh0j+H2Jl2CC8kb26Y6XZyuLVE="
+			}
 		}
 	},
 	"api": {
@@ -62,12 +61,12 @@
 				"GraphQLAPIIdOutput": "yeoxtb6mbve4vlcf5rteixxcua",
 				"GraphQLAPIEndpointOutput": "https://oonttymsgfhjpbgwlrm5bf75ha.appsync-api.eu-central-1.amazonaws.com/graphql"
 			},
-			"lastPushTimeStamp": "2020-04-23T18:26:34.943Z",
+			"lastPushTimeStamp": "2020-04-28T23:39:07.951Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/amplify-wgplaner-dev-162427-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apiwgplaner"
 			},
-			"lastPushDirHash": "lzwDpx8kM811sROUC6+4NBR6dWg="
+			"lastPushDirHash": "ATbfxh6OcBK0fR91r+tj4+6aznE="
 		}
 	},
 	"hosting": {

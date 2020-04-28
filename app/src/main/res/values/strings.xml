@@ -14,7 +14,6 @@
     <string name="create_a_wg">Create a WG</string>
     <string name="access_a_wg">Access a WG</string>
     <string name="sign_in">Sing in</string>
-    <string name="textfield_label"></string>
     <string name="create_an_account">Create an account</string>
     <string name="e_mail_Field">E-Mail</string>
     <string name="password_Field">Password</string>
@@ -25,12 +24,10 @@
     <string name="create_wg">Create WG</string>
     <string name="wg_name">WG-Name</string>
     <string name="city">City</string>
-    <string name="adress">Adress</string>
+    <string name="address">Address</string>
     <string name="plz">Plz</string>
     <string name="create_your_wg">Create your WG</string>
     <string name="log_in">Log In</string>
-
-
     <string name="access_wg">Access WG</string>
     <string name="enter_your_wg_code_here">Enter your WG-Code here</string>
     <string name="search_for_wg">Search for WG</string>
@@ -51,5 +48,10 @@
     <string name="menu">Menu</string>
     <string name="my_wg">My WG</string>
     <string name="logout">Logout</string>
+    <string name="addItem">Add Item</string>
+    <string name="enterItem">Enter Item</string>
+    <string name="calendar">Calendar</string>
+    <string name="shoppingList">Shopping List</string>
+    <string name="news">News</string>
 
 </resources>
