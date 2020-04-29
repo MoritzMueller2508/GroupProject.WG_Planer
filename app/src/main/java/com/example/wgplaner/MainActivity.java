@@ -9,18 +9,23 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "onCreate: Creating");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_menu);
-        /**Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);**/
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+
+
 
 /**
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -33,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
         });
         **/
 
+    LoginScreenButton_HomeMenu();
+    RegisterScreenButton_HomeMenu();
 
 
-        loginScreenButton_HomeMenu();
-        registerScreenButton_HomeMenu();
 
     }
 
@@ -62,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void loginScreenButton_HomeMenu(){
+    public void LoginScreenButton_HomeMenu(){
 
         Button navToLoginScreen = (Button) findViewById(R.id.btn_logInHome);
         navToLoginScreen.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void registerScreenButton_HomeMenu(){
+    public void RegisterScreenButton_HomeMenu(){
 
         Button navToRegisterScreen = (Button) findViewById(R.id.btn_register);
         navToRegisterScreen.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +90,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }
