@@ -1,0 +1,57 @@
+<resources>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="app_name">WG Planer</string>
+
+    <string name="welcome_to_wg_planer">Welcome to WG Planer!</string>
+    <string name="create_a_wg">Create a WG</string>
+    <string name="access_a_wg">Access a WG</string>
+    <string name="sign_in">Sing in</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="e_mail_Field">E-Mail</string>
+    <string name="password_Field">Password</string>
+    <string name="name_Field">Name</string>
+    <string name="invite_roomie">Invite a roomie</string>
+    <string name="roomie_username">Roomie\'s username</string>
+    <string name="create_account">Create account</string>
+    <string name="create_wg">Create WG</string>
+    <string name="wg_name">WG-Name</string>
+    <string name="city">City</string>
+    <string name="address">Address</string>
+    <string name="plz">Plz</string>
+    <string name="create_your_wg">Create your WG</string>
+    <string name="log_in">Log In</string>
+    <string name="access_wg">Access WG</string>
+    <string name="enter_your_wg_code_here">Enter your WG-Code here</string>
+    <string name="search_for_wg">Search for WG</string>
+    <string name="field_for_wg_code">Field for WG-Code</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="register_free">No account? Register for free!</string>
+    <string name="washing_machine_3">Washing Machine 3:</string>
+    <string name="household_devices">Household devices</string>
+    <string name="overview">Overview:</string>
+    <string name="washing_machine_1">Washing Machine 1:</string>
+    <string name="washing_machine_2">Washing Machine 2:</string>
+    <string name="dryer_1">Dryer 1:</string>
+    <string name="dishwasher">Dishwasher:</string>
+    <string name="dryer_2">Dryer 2:</string>
+    <string name="dryer_3">Dryer 3:</string>
+    <string name="washing_machine_4">Washing Machine 4:</string>
+    <string name="menu">Menu</string>
+    <string name="my_wg">My WG</string>
+    <string name="logout">Logout</string>
+    <string name="addItem">Add Item</string>
+    <string name="enterItem">Enter Item</string>
+    <string name="calendar">Calendar</string>
+    <string name="shoppingList">Shopping List</string>
+    <string name="news">News</string>
+
+</resources>
