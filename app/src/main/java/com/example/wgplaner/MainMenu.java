@@ -1,23 +1,32 @@
 package com.example.wgplaner;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+
 public class MainMenu extends AppCompatActivity {
+    private AWSAppSyncClient mAWSAppSyncClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainmenu);
 
+        final Toolbar toolbar = (Toolbar)findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(view -> onBackPressed());
+
         MenuToCreateWG();
         MenuToAccessWG();
         MenuToLogout();
-        MenuToMyWG();
+        MenuToMyWg();
     }
     public void MenuToCreateWG(){
 
@@ -54,17 +63,18 @@ public class MainMenu extends AppCompatActivity {
 
     }
 
-    public void MenuToMyWG(){
+    public void MenuToMyWg(){
 
-        Button navMainMenu_To_MyWG = (Button) findViewById(R.id.btn_myWg_menu);
-        navMainMenu_To_MyWG.setOnClickListener(new View.OnClickListener() {
+        Button navMainMenu_To_MyWg = (Button) findViewById(R.id.btn_myWg_menu);
+        navMainMenu_To_MyWg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainMenu.this, MyWg.class));
-
-
             }
         });
 
     }
+
+
+    //public void
 }

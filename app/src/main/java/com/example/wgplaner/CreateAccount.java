@@ -1,11 +1,12 @@
 package com.example.wgplaner;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class CreateAccount extends AppCompatActivity {
 
@@ -14,10 +15,15 @@ public class CreateAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_account);
 
-       CreateAccountToMenu();
+        final Toolbar toolbar = (Toolbar)findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(view -> onBackPressed());
+
+       createAccountToMenu();
     }
 
-    public void CreateAccountToMenu(){
+    public void createAccountToMenu(){
 
         Button navCreateAcc_To_MainMenu = (Button) findViewById(R.id.btn_createAcc);
         navCreateAcc_To_MainMenu.setOnClickListener(new View.OnClickListener() {

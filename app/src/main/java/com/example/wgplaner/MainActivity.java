@@ -1,27 +1,65 @@
 package com.example.wgplaner;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.Callback;
+import com.amazonaws.mobile.client.SignInUIOptions;
+import com.amazonaws.mobile.client.UserStateDetails;
+import com.amazonaws.mobile.client.UserStateListener;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(TAG, "onCreate: Creating");
+        Log.d("Creating", "onCreate: Creating");
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_menu);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_please_wait_redirection);
+
+        AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
+
+            @Override
+            public void onResult(UserStateDetails userStateDetails) {
+                Log.i("INIT", "onResult: " + userStateDetails.getUserState());
+
+                switch (userStateDetails.getUserState()){
+                    case SIGNED_IN:
+                        startActivity(new Intent(MainActivity.this, MainMenu.class));
+                        break;
+                    case SIGNED_OUT:
+                        showSignIn();
+                        break;
+                    default:
+                        AWSMobileClient.getInstance().signOut();
+                        showSignIn();
+                        break;
+                }
+            }
+
+
+            @Override
+            public void onError(Exception e) {
+                Log.e("INIT", e.toString());
+            }
+        });
+
+
+        /**Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-/**
+
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,12 +70,11 @@ public class MainActivity extends AppCompatActivity {
         });
         **/
 
-    LoginScreenButton_HomeMenu();
-    RegisterScreenButton_HomeMenu();
-
 
 
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void LoginScreenButton_HomeMenu(){
+/**
+    public void loginScreenButton_HomeMenu(){
 
         Button navToLoginScreen = (Button) findViewById(R.id.btn_logInHome);
         navToLoginScreen.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void RegisterScreenButton_HomeMenu(){
+    public void registerScreenButton_HomeMenu(){
 
         Button navToRegisterScreen = (Button) findViewById(R.id.btn_register);
         navToRegisterScreen.setOnClickListener(new View.OnClickListener() {
@@ -84,4 +121,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+     **/
+
+
+    public void showSignIn() {
+
+        try{
+            AWSMobileClient.getInstance().showSignIn(this,
+                    SignInUIOptions.builder().
+                            nextActivity(MainMenu.class)
+                            .canCancel(true)
+                            .build());
+        } catch (Exception e) {
+
+            Log.e(TAG,e.toString());
+
+        }
+
+
+    }
+
+
+
 }
