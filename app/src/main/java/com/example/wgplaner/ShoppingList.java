@@ -86,20 +86,10 @@ public class ShoppingList extends AppCompatActivity {
                 String inputDelete = deleteInput.getText().toString();
                 String dItem= inputDelete;
 
-                Delete(shopping_list, dItem);
                 arrayAdapter.notifyDataSetChanged();
             }
         });
     }
-
-    private void Delete(List shopping_list, String dItem) {
-        for(int i=0; i<20; i++) {
-            if(shopping_list.get(i).equals(dItem)){
-                shopping_list.remove(i);
-                deleteInput.getText().clear();
-            }
-        }
-        }
 
 
     /*public void runMutation() {
