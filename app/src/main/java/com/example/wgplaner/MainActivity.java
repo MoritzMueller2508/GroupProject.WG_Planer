@@ -1,32 +1,78 @@
 package com.example.wgplaner;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.core.Amplify;
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.Callback;
+import com.amazonaws.mobile.client.SignInUIOptions;
+import com.amazonaws.mobile.client.UserStateDetails;
+import com.amazonaws.mobile.client.UserStateListener;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(TAG, "onCreate: Creating");
+        Log.d("Creating", "onCreate: Creating");
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_menu);
-        /**Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);**/
+        setContentView(R.layout.activity_please_wait_redirection);
 
-        try {
+        AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
+
+            @Override
+            public void onResult(UserStateDetails userStateDetails) {
+                Log.i("INIT", "onResult: " + userStateDetails.getUserState());
+
+                switch (userStateDetails.getUserState()){
+                    case SIGNED_IN:
+                        startActivity(new Intent(MainActivity.this, MainMenu.class));
+                        break;
+                    case SIGNED_OUT:
+                        showSignIn();
+                        break;
+                    default:
+                        AWSMobileClient.getInstance().signOut();
+                        showSignIn();
+                        break;
+                }
+            }
+
+
+            @Override
+            public void onError(Exception e) {
+                Log.e("INIT", e.toString());
+            }
+        });
+
+
+        /**Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        **/
+
+
+       /** try {
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.configure(getApplicationContext());
             Log.i("ApiQuickstart", "All set and ready to go!");
@@ -37,7 +83,14 @@ public class MainActivity extends AppCompatActivity {
         loginScreenButton_HomeMenu();
         registerScreenButton_HomeMenu();
 
-    }aws
+    }aws**/
+        
+
+
+
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+/**
     public void loginScreenButton_HomeMenu(){
 
         Button navToLoginScreen = (Button) findViewById(R.id.btn_logInHome);
@@ -84,6 +137,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+     **/
+
+
+    public void showSignIn() {
+
+        try{
+            AWSMobileClient.getInstance().showSignIn(this,
+                    SignInUIOptions.builder().
+                            nextActivity(MainMenu.class)
+                            .canCancel(true)
+                            .build());
+        } catch (Exception e) {
+
+            Log.e(TAG,e.toString());
+
+        }
+
+
+    }
+
 
 
 }

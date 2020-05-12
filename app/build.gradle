@@ -69,4 +69,19 @@ dependencies {
 // Sign in UI Library
     implementation('com.amazonaws:aws-android-sdk-auth-ui:2.16.12@aar') { transitive = true }
 
+
+    // Mobile Client for initializing the SDK
+    implementation('com.amazonaws:aws-android-sdk-mobile-client:2.13')
+
+    // Cognito UserPools for SignIn
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-v4:24.+'
+    implementation('com.amazonaws:aws-android-sdk-auth-userpools:2.13')
+
+    // Sign in UI Library
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:24.+'
+    implementation('com.amazonaws:aws-android-sdk-auth-ui:2.13')
+
+
 }
