@@ -30,20 +30,37 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ti_addItem"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/ti_addItemLayout"
+        android:layout_width="224dp"
+        android:layout_height="57dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout5">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_addItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enterItem" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ti_addValueLayout"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_addShoppingListItem"
+        app:layout_constraintStart_toEndOf="@+id/ti_addItemLayout"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_addValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enterValue" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -53,7 +70,7 @@
         android:layout_height="38dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="10dp"
         android:background="@color/Roche_color"
         android:fontFamily="@font/open_sans"
         android:text="@string/addItem"
@@ -61,17 +78,20 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ti_addItem"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/ti_addItemLayout"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout5" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="0dp"
+        android:id="@+id/list_show_ShoppingListItems"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ti_addItem" />
+        app:layout_constraintTop_toBottomOf="@+id/ti_addItemLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

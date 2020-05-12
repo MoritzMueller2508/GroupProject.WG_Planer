@@ -1,26 +1,3 @@
-type Mutation {
-  addWG(id: ID!, name: String!, address: String!, city: String!, plz: String!): WG
-  addUser(id: ID!, name: String!, email: String!, password: String!): User
-  addShoppingList(id: ID!, itemName: String!, value: Int): ShoppingList
-  addHouseholdDevice(id: ID!, deviceName: String!, value: Int): HouseholdDevices
-  addNews(id: ID!, title: String!, text: String): News
-  createWG(input: CreateWGInput!, condition: ModelWGConditionInput): WG
-  updateWG(input: UpdateWGInput!, condition: ModelWGConditionInput): WG
-  deleteWG(input: DeleteWGInput!, condition: ModelWGConditionInput): WG
-  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User
-  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User
-  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User
-  createShoppingList(input: CreateShoppingListInput!, condition: ModelShoppingListConditionInput): ShoppingList
-  updateShoppingList(input: UpdateShoppingListInput!, condition: ModelShoppingListConditionInput): ShoppingList
-  deleteShoppingList(input: DeleteShoppingListInput!, condition: ModelShoppingListConditionInput): ShoppingList
-  createHouseholdDevices(input: CreateHouseholdDevicesInput!, condition: ModelHouseholdDevicesConditionInput): HouseholdDevices
-  updateHouseholdDevices(input: UpdateHouseholdDevicesInput!, condition: ModelHouseholdDevicesConditionInput): HouseholdDevices
-  deleteHouseholdDevices(input: DeleteHouseholdDevicesInput!, condition: ModelHouseholdDevicesConditionInput): HouseholdDevices
-  createNews(input: CreateNewsInput!, condition: ModelNewsConditionInput): News
-  updateNews(input: UpdateNewsInput!, condition: ModelNewsConditionInput): News
-  deleteNews(input: DeleteNewsInput!, condition: ModelNewsConditionInput): News
-}
-
 type WG {
   id: ID!
   name: String!
@@ -181,6 +158,24 @@ input DeleteWGInput {
   id: ID
 }
 
+type Mutation {
+  createWG(input: CreateWGInput!, condition: ModelWGConditionInput): WG
+  updateWG(input: UpdateWGInput!, condition: ModelWGConditionInput): WG
+  deleteWG(input: DeleteWGInput!, condition: ModelWGConditionInput): WG
+  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User
+  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User
+  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User
+  createShoppingList(input: CreateShoppingListInput!, condition: ModelShoppingListConditionInput): ShoppingList
+  updateShoppingList(input: UpdateShoppingListInput!, condition: ModelShoppingListConditionInput): ShoppingList
+  deleteShoppingList(input: DeleteShoppingListInput!, condition: ModelShoppingListConditionInput): ShoppingList
+  createHouseholdDevices(input: CreateHouseholdDevicesInput!, condition: ModelHouseholdDevicesConditionInput): HouseholdDevices
+  updateHouseholdDevices(input: UpdateHouseholdDevicesInput!, condition: ModelHouseholdDevicesConditionInput): HouseholdDevices
+  deleteHouseholdDevices(input: DeleteHouseholdDevicesInput!, condition: ModelHouseholdDevicesConditionInput): HouseholdDevices
+  createNews(input: CreateNewsInput!, condition: ModelNewsConditionInput): News
+  updateNews(input: UpdateNewsInput!, condition: ModelNewsConditionInput): News
+  deleteNews(input: DeleteNewsInput!, condition: ModelNewsConditionInput): News
+}
+
 input ModelWGConditionInput {
   name: ModelStringInput
   address: ModelStringInput
@@ -202,6 +197,24 @@ enum ModelAttributeTypes {
   string
   stringSet
   _null
+}
+
+type Subscription {
+  onCreateWG: WG @aws_subscribe(mutations: ["createWG"])
+  onUpdateWG: WG @aws_subscribe(mutations: ["updateWG"])
+  onDeleteWG: WG @aws_subscribe(mutations: ["deleteWG"])
+  onCreateUser: User @aws_subscribe(mutations: ["createUser"])
+  onUpdateUser: User @aws_subscribe(mutations: ["updateUser"])
+  onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"])
+  onCreateShoppingList: ShoppingList @aws_subscribe(mutations: ["createShoppingList"])
+  onUpdateShoppingList: ShoppingList @aws_subscribe(mutations: ["updateShoppingList"])
+  onDeleteShoppingList: ShoppingList @aws_subscribe(mutations: ["deleteShoppingList"])
+  onCreateHouseholdDevices: HouseholdDevices @aws_subscribe(mutations: ["createHouseholdDevices"])
+  onUpdateHouseholdDevices: HouseholdDevices @aws_subscribe(mutations: ["updateHouseholdDevices"])
+  onDeleteHouseholdDevices: HouseholdDevices @aws_subscribe(mutations: ["deleteHouseholdDevices"])
+  onCreateNews: News @aws_subscribe(mutations: ["createNews"])
+  onUpdateNews: News @aws_subscribe(mutations: ["updateNews"])
+  onDeleteNews: News @aws_subscribe(mutations: ["deleteNews"])
 }
 
 type ModelUserConnection {

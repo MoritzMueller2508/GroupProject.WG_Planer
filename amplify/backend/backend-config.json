@@ -1,9 +1,10 @@
 {
 	"auth": {
-		"wgplaner16bc2e02": {
+		"wgplaner81671fa3": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
-			"dependsOn": []
+			"dependsOn": [],
+			"customAuth": false
 		}
 	},
 	"api": {
@@ -16,7 +17,7 @@
 					"defaultAuthentication": {
 						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
 						"userPoolConfig": {
-							"userPoolId": "authwgplaner99c30e85"
+							"userPoolId": "authwgplaner81671fa3"
 						}
 					}
 				}

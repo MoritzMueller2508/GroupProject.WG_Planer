@@ -20,7 +20,7 @@ public class MainMenu extends AppCompatActivity {
 
         final Toolbar toolbar = (Toolbar)findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         toolbar.setNavigationOnClickListener(view -> onBackPressed());
 
         MenuToCreateWG();

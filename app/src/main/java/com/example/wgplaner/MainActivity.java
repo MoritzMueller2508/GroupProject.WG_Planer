@@ -10,6 +10,10 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.aws.AWSApiPlugin;
+import com.amplifyframework.core.Amplify;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
@@ -22,18 +26,13 @@ public class MainActivity extends AppCompatActivity {
         /**Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);**/
 
-/**
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        **/
-
-
+        try {
+            Amplify.addPlugin(new AWSApiPlugin());
+            Amplify.configure(getApplicationContext());
+            Log.i("ApiQuickstart", "All set and ready to go!");
+        } catch (AmplifyException exception) {
+            Log.e("ApiQuickstart", exception.getMessage(), exception);
+        }
 
         loginScreenButton_HomeMenu();
         registerScreenButton_HomeMenu();
