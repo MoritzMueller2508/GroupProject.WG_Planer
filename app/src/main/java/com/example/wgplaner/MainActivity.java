@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         loginScreenButton_HomeMenu();
         registerScreenButton_HomeMenu();
 
-    }
+    }aws
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
