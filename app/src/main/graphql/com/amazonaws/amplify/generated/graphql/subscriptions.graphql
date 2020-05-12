@@ -1,0 +1,115 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateWg {
+  onCreateWG {
+    id
+    name
+    address
+    city
+    plz
+  }
+}
+subscription OnUpdateWg {
+  onUpdateWG {
+    id
+    name
+    address
+    city
+    plz
+  }
+}
+subscription OnDeleteWg {
+  onDeleteWG {
+    id
+    name
+    address
+    city
+    plz
+  }
+}
+subscription OnCreateUser {
+  onCreateUser {
+    id
+    name
+    email
+    password
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    name
+    email
+    password
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    name
+    email
+    password
+  }
+}
+subscription OnCreateShoppingList {
+  onCreateShoppingList {
+    id
+    itemName
+    value
+  }
+}
+subscription OnUpdateShoppingList {
+  onUpdateShoppingList {
+    id
+    itemName
+    value
+  }
+}
+subscription OnDeleteShoppingList {
+  onDeleteShoppingList {
+    id
+    itemName
+    value
+  }
+}
+subscription OnCreateHouseholdDevices {
+  onCreateHouseholdDevices {
+    id
+    deviceName
+    value
+  }
+}
+subscription OnUpdateHouseholdDevices {
+  onUpdateHouseholdDevices {
+    id
+    deviceName
+    value
+  }
+}
+subscription OnDeleteHouseholdDevices {
+  onDeleteHouseholdDevices {
+    id
+    deviceName
+    value
+  }
+}
+subscription OnCreateNews {
+  onCreateNews {
+    id
+    title
+    text
+  }
+}
+subscription OnUpdateNews {
+  onUpdateNews {
+    id
+    title
+    text
+  }
+}
+subscription OnDeleteNews {
+  onDeleteNews {
+    id
+    title
+    text
+  }
+}

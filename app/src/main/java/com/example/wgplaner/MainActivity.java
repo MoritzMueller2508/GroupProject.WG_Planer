@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.aws.AWSApiPlugin;
+import com.amplifyframework.core.Amplify;
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.SignInUIOptions;
@@ -58,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
         /**Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +70,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         **/
+
+
+       /** try {
+            Amplify.addPlugin(new AWSApiPlugin());
+            Amplify.configure(getApplicationContext());
+            Log.i("ApiQuickstart", "All set and ready to go!");
+        } catch (AmplifyException exception) {
+            Log.e("ApiQuickstart", exception.getMessage(), exception);
+        }
+
+        loginScreenButton_HomeMenu();
+        registerScreenButton_HomeMenu();
+
+    }aws**/
+        
 
 
 

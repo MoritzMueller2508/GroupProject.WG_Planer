@@ -24,8 +24,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
 }
@@ -33,6 +33,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    // For control over item selection of both touch and mouse driven selection
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
     implementation 'androidx.appcompat:appcompat:1.1.0'
 
     implementation 'com.google.android.material:material:1.1.0'
@@ -43,22 +46,28 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //Base SDK
-    implementation 'com.amazonaws:aws-android-sdk-core:2.16.8'
+    implementation 'com.amazonaws:aws-android-sdk-core:2.16.12'
     //AppSync SDK
     implementation 'com.amazonaws:aws-android-sdk-appsync:2.9.0'
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
 
-
     implementation 'com.amplifyframework:core:0.10.0'
+    implementation 'com.amplifyframework:aws-api:0.10.0'
     implementation 'com.amplifyframework:aws-analytics-pinpoint:0.10.0'
     //For AWSMobileClient only:
-    implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.16.+'
+    implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.16.12'
     //For the drop-in UI also:
-    implementation 'com.amazonaws:aws-android-sdk-auth-userpools:2.16.+'
-    implementation 'com.amazonaws:aws-android-sdk-auth-ui:2.16.+'
+    implementation 'com.amazonaws:aws-android-sdk-auth-userpools:2.16.12'
+    implementation 'com.amazonaws:aws-android-sdk-auth-ui:2.16.12'
     //For hosted UI also:
-    implementation 'com.amazonaws:aws-android-sdk-cognitoauth:2.16.+'
+    implementation 'com.amazonaws:aws-android-sdk-cognitoauth:2.16.12'
+    // Mobile Client for initializing the SDK
+    implementation('com.amazonaws:aws-android-sdk-mobile-client:2.16.12@aar') { transitive = true }
+// Cognito UserPools for SignIn
+    implementation('com.amazonaws:aws-android-sdk-auth-userpools:2.16.12@aar') { transitive = true }
+// Sign in UI Library
+    implementation('com.amazonaws:aws-android-sdk-auth-ui:2.16.12@aar') { transitive = true }
 
 
     // Mobile Client for initializing the SDK

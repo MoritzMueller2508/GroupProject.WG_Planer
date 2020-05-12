@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "wgplaner16bc2e02_identitypool_16bc2e02",
+    "identityPoolName": "wgplaner81671fa3_identitypool_81671fa3",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "wgplan16bc2e02",
-    "userPoolName": "wgplaner16bc2e02_userpool_16bc2e02",
+    "resourceNameTruncated": "wgplan81671fa3",
+    "userPoolName": "wgplaner81671fa3_userpool_81671fa3",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,9 +28,9 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "wgplan16bc2e02_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "wgplan81671fa3_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "wgplaner16bc2e02",
+    "resourceName": "wgplaner81671fa3",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [

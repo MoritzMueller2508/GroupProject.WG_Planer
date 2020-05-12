@@ -1,14 +1,8 @@
 {
     "CreateAPIKey": 0,
     "AppSyncApiName": "wgplaner",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBBillingMode": "PROVISIONED",
     "DynamoDBEnableServerSideEncryption": "false",
-    "AuthCognitoUserPoolId": {
-        "Fn::GetAtt": [
-            "authwgplaner16bc2e02",
-            "Outputs.UserPoolId"
-        ]
-    },
     "S3DeploymentBucket": "amplify-wgplaner-dev-162427-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/030facda07bce39ee1920ca9a44fc1fcb8fd87c1"
+    "S3DeploymentRootKey": "amplify-appsync-files/63afcc7acee3fa09e81cd4bf2577bfe740964756"
 }
