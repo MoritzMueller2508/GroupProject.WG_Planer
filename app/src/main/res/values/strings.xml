@@ -56,5 +56,6 @@
     <string name="news">News</string>
     <string name="title_activity_please_wait_redirection">PleaseWaitRedirection</string>
     <string name="redirection">Please wait while you are forwarded to the Login-Screen</string>
+    <string name="id">Id #</string>
 
 </resources>

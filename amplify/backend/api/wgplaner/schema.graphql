@@ -1,31 +1,34 @@
-type WG @model  {
+type WG @model @auth(rules: [{allow: private}]) {
     id:ID!
     name: String!
     address: String!
     city: String!
-    plz: Int!
+    plz: String!
+    shoppingList: ShoppingList @connection
+    householdDevices: HouseholdDevices @connection
+    news: News @connection
 }
 
-type User @model {
+type User @model @auth(rules: [{allow: private}]) {
     id: ID!
     name: String!
     email: String!
     password: String!
 }
 
-type ShoppingList @model  {
+type ShoppingList @model @auth(rules: [{allow: private}]) {
     id: ID!
     itemName: String!
-    value: Int
+    value: String
 }
 
-type HouseholdDevices @model {
+type HouseholdDevices @model @auth(rules: [{allow: private}]) {
     id: ID!
     deviceName: String!
-    value: Int
+    value: String
 }
 
-type News @model  {
+type News @model @auth(rules: [{allow: private}]) {
     id: ID!
     title: String!
     text: String

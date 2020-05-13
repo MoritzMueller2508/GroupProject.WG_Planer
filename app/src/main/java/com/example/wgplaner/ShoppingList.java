@@ -7,11 +7,13 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amazonaws.amplify.generated.graphql.CreateShoppingListMutation;
 import com.amazonaws.amplify.generated.graphql.ListShoppingListsQuery;
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.Callback;
+import com.amazonaws.mobile.client.UserStateDetails;
 import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
@@ -40,6 +42,19 @@ public class ShoppingList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_list);
+
+        AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
+
+            @Override
+            public void onResult(UserStateDetails userStateDetails) {
+                Log.i("INIT", "onResult: " + userStateDetails.getUserState());
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Log.e("INIT", "Initialization error.", e);
+            }
+        });
         CognitoUserPool mCognitoUserPool = new CognitoUserPool(getApplicationContext(), new AWSConfiguration(getApplicationContext()));
         mAWSAppSyncClient = AWSAppSyncClient.builder()
                 .context(getApplicationContext())
@@ -53,8 +68,6 @@ public class ShoppingList extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(view -> onBackPressed());
 
-        runQuery();
-
         Button btnAddItem = (Button) findViewById(R.id.btn_addShoppingListItem);
         btnAddItem.setOnClickListener(new View.OnClickListener() {
 
@@ -64,33 +77,31 @@ public class ShoppingList extends AppCompatActivity {
             }
         });
 
-
-        mRecyclerView = findViewById(R.id.list_show_ShoppingListItems);
+        /**mRecyclerView = findViewById(R.id.list_show_ShoppingListItems);
 
         // use a linear layout manager
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // specify an adapter (see also next example)
         mAdapter = new MyAdapter(this);
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);**/
 
     }
 
-    @Override
+   /** @Override
     public void onResume() {
         super.onResume();
 
         // Query list data when we return to the screen
         runQuery();
-    }
+    }**/
 
     public void runMutation(){
         final String name = ((TextInputEditText) findViewById(R.id.ti_addItem)).getText().toString();
         final String value = ((TextInputEditText) findViewById(R.id.ti_addValue)).getText().toString();
-        final int valueInt = Integer.parseInt(value);
         CreateShoppingListInput createShoppingListInput = CreateShoppingListInput.builder()
                 .itemName(name)
-                .value(valueInt)
+                .value(value)
                 .build();
 
         mAWSAppSyncClient.mutate(CreateShoppingListMutation.builder().input(createShoppingListInput).build())
@@ -101,6 +112,7 @@ public class ShoppingList extends AppCompatActivity {
         @Override
         public void onResponse(@Nonnull Response<CreateShoppingListMutation.Data> response) {
             Log.i("Results", "Added Item");
+            //runQuery();
         }
 
         @Override

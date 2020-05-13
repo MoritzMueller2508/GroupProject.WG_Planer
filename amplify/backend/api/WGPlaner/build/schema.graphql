@@ -3,7 +3,13 @@ type WG {
   name: String!
   address: String!
   city: String!
-  plz: Int!
+  plz: String!
+  shoppingList: ShoppingList
+  householdDevices: HouseholdDevices
+  news: News
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
 }
 
 type User {
@@ -11,24 +17,36 @@ type User {
   name: String!
   email: String!
   password: String!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
 }
 
 type ShoppingList {
   id: ID!
   itemName: String!
-  value: Int
+  value: String
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
 }
 
 type HouseholdDevices {
   id: ID!
   deviceName: String!
-  value: Int
+  value: String
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
 }
 
 type News {
   id: ID!
   title: String!
   text: String
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
 }
 
 enum ModelSortDirection {
@@ -39,6 +57,7 @@ enum ModelSortDirection {
 type ModelWGConnection {
   items: [WG]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelStringInput {
@@ -119,21 +138,26 @@ input ModelWGFilterInput {
   name: ModelStringInput
   address: ModelStringInput
   city: ModelStringInput
-  plz: ModelIntInput
+  plz: ModelStringInput
   and: [ModelWGFilterInput]
   or: [ModelWGFilterInput]
   not: ModelWGFilterInput
 }
 
 type Query {
+  syncWGS(filter: ModelWGFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelWGConnection
   getWG(id: ID!): WG
   listWGs(filter: ModelWGFilterInput, limit: Int, nextToken: String): ModelWGConnection
+  syncUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUserConnection
   getUser(id: ID!): User
   listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection
+  syncShoppingLists(filter: ModelShoppingListFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelShoppingListConnection
   getShoppingList(id: ID!): ShoppingList
   listShoppingLists(filter: ModelShoppingListFilterInput, limit: Int, nextToken: String): ModelShoppingListConnection
+  syncHouseholdDevices(filter: ModelHouseholdDevicesFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelHouseholdDevicesConnection
   getHouseholdDevices(id: ID!): HouseholdDevices
   listHouseholdDevicess(filter: ModelHouseholdDevicesFilterInput, limit: Int, nextToken: String): ModelHouseholdDevicesConnection
+  syncNews(filter: ModelNewsFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelNewsConnection
   getNews(id: ID!): News
   listNewss(filter: ModelNewsFilterInput, limit: Int, nextToken: String): ModelNewsConnection
 }
@@ -143,7 +167,11 @@ input CreateWGInput {
   name: String!
   address: String!
   city: String!
-  plz: Int!
+  plz: String!
+  _version: Int
+  wGShoppingListId: ID
+  wGHouseholdDevicesId: ID
+  wGNewsId: ID
 }
 
 input UpdateWGInput {
@@ -151,11 +179,16 @@ input UpdateWGInput {
   name: String
   address: String
   city: String
-  plz: Int
+  plz: String
+  _version: Int
+  wGShoppingListId: ID
+  wGHouseholdDevicesId: ID
+  wGNewsId: ID
 }
 
 input DeleteWGInput {
   id: ID
+  _version: Int
 }
 
 type Mutation {
@@ -180,7 +213,7 @@ input ModelWGConditionInput {
   name: ModelStringInput
   address: ModelStringInput
   city: ModelStringInput
-  plz: ModelIntInput
+  plz: ModelStringInput
   and: [ModelWGConditionInput]
   or: [ModelWGConditionInput]
   not: ModelWGConditionInput
@@ -220,6 +253,7 @@ type Subscription {
 type ModelUserConnection {
   items: [User]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelUserFilterInput {
@@ -237,6 +271,7 @@ input CreateUserInput {
   name: String!
   email: String!
   password: String!
+  _version: Int
 }
 
 input UpdateUserInput {
@@ -244,10 +279,12 @@ input UpdateUserInput {
   name: String
   email: String
   password: String
+  _version: Int
 }
 
 input DeleteUserInput {
   id: ID
+  _version: Int
 }
 
 input ModelUserConditionInput {
@@ -262,12 +299,13 @@ input ModelUserConditionInput {
 type ModelShoppingListConnection {
   items: [ShoppingList]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelShoppingListFilterInput {
   id: ModelIDInput
   itemName: ModelStringInput
-  value: ModelIntInput
+  value: ModelStringInput
   and: [ModelShoppingListFilterInput]
   or: [ModelShoppingListFilterInput]
   not: ModelShoppingListFilterInput
@@ -276,22 +314,25 @@ input ModelShoppingListFilterInput {
 input CreateShoppingListInput {
   id: ID
   itemName: String!
-  value: Int
+  value: String
+  _version: Int
 }
 
 input UpdateShoppingListInput {
   id: ID!
   itemName: String
-  value: Int
+  value: String
+  _version: Int
 }
 
 input DeleteShoppingListInput {
   id: ID
+  _version: Int
 }
 
 input ModelShoppingListConditionInput {
   itemName: ModelStringInput
-  value: ModelIntInput
+  value: ModelStringInput
   and: [ModelShoppingListConditionInput]
   or: [ModelShoppingListConditionInput]
   not: ModelShoppingListConditionInput
@@ -300,12 +341,13 @@ input ModelShoppingListConditionInput {
 type ModelHouseholdDevicesConnection {
   items: [HouseholdDevices]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelHouseholdDevicesFilterInput {
   id: ModelIDInput
   deviceName: ModelStringInput
-  value: ModelIntInput
+  value: ModelStringInput
   and: [ModelHouseholdDevicesFilterInput]
   or: [ModelHouseholdDevicesFilterInput]
   not: ModelHouseholdDevicesFilterInput
@@ -314,22 +356,25 @@ input ModelHouseholdDevicesFilterInput {
 input CreateHouseholdDevicesInput {
   id: ID
   deviceName: String!
-  value: Int
+  value: String
+  _version: Int
 }
 
 input UpdateHouseholdDevicesInput {
   id: ID!
   deviceName: String
-  value: Int
+  value: String
+  _version: Int
 }
 
 input DeleteHouseholdDevicesInput {
   id: ID
+  _version: Int
 }
 
 input ModelHouseholdDevicesConditionInput {
   deviceName: ModelStringInput
-  value: ModelIntInput
+  value: ModelStringInput
   and: [ModelHouseholdDevicesConditionInput]
   or: [ModelHouseholdDevicesConditionInput]
   not: ModelHouseholdDevicesConditionInput
@@ -338,6 +383,7 @@ input ModelHouseholdDevicesConditionInput {
 type ModelNewsConnection {
   items: [News]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelNewsFilterInput {
@@ -353,16 +399,19 @@ input CreateNewsInput {
   id: ID
   title: String!
   text: String
+  _version: Int
 }
 
 input UpdateNewsInput {
   id: ID!
   title: String
   text: String
+  _version: Int
 }
 
 input DeleteNewsInput {
   id: ID
+  _version: Int
 }
 
 input ModelNewsConditionInput {
