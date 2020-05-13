@@ -1,5 +1,0 @@
-{
-    "AppSyncApiName": "wgplaner",
-    "DynamoDBBillingMode": "PROVISIONED",
-    "DynamoDBEnableServerSideEncryption": "false"
-}

@@ -29,6 +29,8 @@ import type.CreateWGInput;
 public class CreateWg extends AppCompatActivity {
     private AWSAppSyncClient mAWSAppSyncClient;
 
+    public MainActivity firstLayout = new MainActivity();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

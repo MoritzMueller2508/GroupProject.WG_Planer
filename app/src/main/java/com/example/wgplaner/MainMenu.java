@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,7 +14,11 @@ import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.UserStateDetails;
 
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+
 public class MainMenu extends AppCompatActivity {
+    private AWSAppSyncClient mAWSAppSyncClient;
+    public MainActivity firstLayout = new MainActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +49,12 @@ public class MainMenu extends AppCompatActivity {
         MenuToLogout();
         MenuToMyWg();
     }
+
+
+
     public void MenuToCreateWG(){
 
-        Button navMainMenu_To_CreateWG = (Button) findViewById(R.id.btn_createWg_menu);
+        ImageButton navMainMenu_To_CreateWG = (ImageButton) findViewById(R.id.btn_createWg_menu);
         navMainMenu_To_CreateWG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +66,7 @@ public class MainMenu extends AppCompatActivity {
 
     public void MenuToAccessWG(){
 
-        Button navMainMenu_To_AccesWG = (Button) findViewById(R.id.btn_accessWg_menu);
+        ImageButton navMainMenu_To_AccesWG = (ImageButton) findViewById(R.id.btn_accessWg_menu);
         navMainMenu_To_AccesWG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +77,7 @@ public class MainMenu extends AppCompatActivity {
 
     public void MenuToLogout(){
 
-        Button navMainMenu_To_Logout = (Button) findViewById(R.id.btn_logout_menu);
+        ImageButton navMainMenu_To_Logout = (ImageButton) findViewById(R.id.btn_logout_menu);
         navMainMenu_To_Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,11 +89,15 @@ public class MainMenu extends AppCompatActivity {
 
     public void MenuToMyWg(){
 
-        Button navMainMenu_To_MyWg = (Button) findViewById(R.id.btn_myWg_menu);
+        ImageButton navMainMenu_To_MyWg = (ImageButton) findViewById(R.id.btn_myWg_menu);
         navMainMenu_To_MyWg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (firstLayout.access == 1) {
                 startActivity(new Intent(MainMenu.this, MyWg.class));
+                } else {
+                    return;
+                }
             }
         });
 

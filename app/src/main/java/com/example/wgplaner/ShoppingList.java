@@ -3,11 +3,15 @@ package com.example.wgplaner;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.material.textfield.TextInputLayout;
 
 import com.amazonaws.amplify.generated.graphql.CreateShoppingListMutation;
 import com.amazonaws.amplify.generated.graphql.ListShoppingListsQuery;
@@ -25,13 +29,17 @@ import com.apollographql.apollo.exception.ApolloException;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
-
+import java.util.Arrays;
+import java.util.List;
 import javax.annotation.Nonnull;
 
 import type.CreateShoppingListInput;
 
 public class ShoppingList extends AppCompatActivity {
 
+    private TextInputLayout textInput;
+    private EditText deleteInput;
+    private ListView list;
     private AWSAppSyncClient mAWSAppSyncClient;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -42,7 +50,6 @@ public class ShoppingList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_list);
-
         AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
 
             @Override
@@ -63,38 +70,65 @@ public class ShoppingList extends AppCompatActivity {
                 .cognitoUserPoolsAuthProvider(new BasicCognitoUserPoolsAuthProvider(mCognitoUserPool))
                 .build();
 
-        final Toolbar toolbar = (Toolbar)findViewById(R.id.my_toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(view -> onBackPressed());
 
+        textInput = findViewById(R.id.ti_addItem);
+        deleteInput = findViewById(R.id.editText);
+
+        list =findViewById(R.id.list_shoppingList);
+
+
+
+        // Initializing a new String Array
+        String[] shoppinglist = new String[] {
+                "Toilettenpapier",
+                "Desinfektionsmittel"
+        };
+
+        // Create a List from String Array elements
+        final List<String> shopping_list = new ArrayList<String>(Arrays.asList(shoppinglist));
+
+        // Create an ArrayAdapter from List
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, shopping_list);
+
+        // DataBind ListView with items from ArrayAdapter
+        list.setAdapter(arrayAdapter);
+
         Button btnAddItem = (Button) findViewById(R.id.btn_addShoppingListItem);
         btnAddItem.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 runMutation();
+               /** String input = textInput.getEditText().getText().toString();
+                shopping_list.add(input);
+                textInput.getEditText().getText().clear();
+                arrayAdapter.notifyDataSetChanged();**/
             }
         });
-
         /**mRecyclerView = findViewById(R.id.list_show_ShoppingListItems);
 
-        // use a linear layout manager
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+         // use a linear layout manager
+         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(this);
-        mRecyclerView.setAdapter(mAdapter);**/
+         // specify an adapter (see also next example)
+         mAdapter = new MyAdapter(this);
+         mRecyclerView.setAdapter(mAdapter);**/
 
+        Button delete = (Button) findViewById(R.id.btn_deleteItem);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String inputDelete = deleteInput.getText().toString();
+                String dItem= inputDelete;
+
+                arrayAdapter.notifyDataSetChanged();
+            }
+        });
     }
-
-   /** @Override
-    public void onResume() {
-        super.onResume();
-
-        // Query list data when we return to the screen
-        runQuery();
-    }**/
 
     public void runMutation(){
         final String name = ((TextInputEditText) findViewById(R.id.ti_addItem)).getText().toString();
@@ -138,6 +172,4 @@ public class ShoppingList extends AppCompatActivity {
             Log.e("ERROR", e.toString());
         }
     };
-
-
 }
