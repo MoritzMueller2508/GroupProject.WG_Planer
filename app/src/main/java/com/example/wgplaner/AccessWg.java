@@ -66,7 +66,6 @@ public class AccessWg extends AppCompatActivity {
         AccessWgToMyWg();
     }
 
-
     public void AccessWgToMyWg() {
         Button navAccessWg_To_MyWg = (Button) findViewById(R.id.btn_searchForWg);
         navAccessWg_To_MyWg.setOnClickListener(new View.OnClickListener() {
