@@ -52,21 +52,19 @@
         android:layout_marginTop="376dp"
         android:autofillHints=""
         android:clickable="false"
-        android:contentDescription="@string/field_for_wg_code"
         android:cursorVisible="true"
         android:ems="10"
         android:fontFamily="@font/open_sans_light"
+        android:hint="@string/id"
         android:inputType="textPersonName"
-        android:text="#"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_hDevices"
         app:layout_constraintVertical_bias="0.0"
-        tools:ignore="HardcodedText,LabelFor"
 
-        />
+        tools:ignore="HardcodedText,LabelFor" />
 
     <Button
         android:id="@+id/btn_searchForWg"

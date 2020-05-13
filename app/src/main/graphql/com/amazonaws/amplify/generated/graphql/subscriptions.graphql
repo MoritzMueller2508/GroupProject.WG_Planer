@@ -6,6 +6,33 @@ subscription OnCreateWg {
     address
     city
     plz
+    shoppingList {
+      id
+      itemName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    householdDevices {
+      id
+      deviceName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    news {
+      id
+      title
+      text
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnUpdateWg {
@@ -15,6 +42,33 @@ subscription OnUpdateWg {
     address
     city
     plz
+    shoppingList {
+      id
+      itemName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    householdDevices {
+      id
+      deviceName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    news {
+      id
+      title
+      text
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnDeleteWg {
@@ -24,6 +78,33 @@ subscription OnDeleteWg {
     address
     city
     plz
+    shoppingList {
+      id
+      itemName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    householdDevices {
+      id
+      deviceName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    news {
+      id
+      title
+      text
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnCreateUser {
@@ -32,6 +113,9 @@ subscription OnCreateUser {
     name
     email
     password
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnUpdateUser {
@@ -40,6 +124,9 @@ subscription OnUpdateUser {
     name
     email
     password
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnDeleteUser {
@@ -48,6 +135,9 @@ subscription OnDeleteUser {
     name
     email
     password
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnCreateShoppingList {
@@ -55,6 +145,9 @@ subscription OnCreateShoppingList {
     id
     itemName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnUpdateShoppingList {
@@ -62,6 +155,9 @@ subscription OnUpdateShoppingList {
     id
     itemName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnDeleteShoppingList {
@@ -69,6 +165,9 @@ subscription OnDeleteShoppingList {
     id
     itemName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnCreateHouseholdDevices {
@@ -76,6 +175,9 @@ subscription OnCreateHouseholdDevices {
     id
     deviceName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnUpdateHouseholdDevices {
@@ -83,6 +185,9 @@ subscription OnUpdateHouseholdDevices {
     id
     deviceName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnDeleteHouseholdDevices {
@@ -90,6 +195,9 @@ subscription OnDeleteHouseholdDevices {
     id
     deviceName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnCreateNews {
@@ -97,6 +205,9 @@ subscription OnCreateNews {
     id
     title
     text
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnUpdateNews {
@@ -104,6 +215,9 @@ subscription OnUpdateNews {
     id
     title
     text
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnDeleteNews {
@@ -111,5 +225,8 @@ subscription OnDeleteNews {
     id
     title
     text
+    _version
+    _deleted
+    _lastChangedAt
   }
 }

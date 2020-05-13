@@ -6,6 +6,33 @@ mutation CreateWg($input: CreateWGInput!, $condition: ModelWGConditionInput) {
     address
     city
     plz
+    shoppingList {
+      id
+      itemName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    householdDevices {
+      id
+      deviceName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    news {
+      id
+      title
+      text
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation UpdateWg($input: UpdateWGInput!, $condition: ModelWGConditionInput) {
@@ -15,6 +42,33 @@ mutation UpdateWg($input: UpdateWGInput!, $condition: ModelWGConditionInput) {
     address
     city
     plz
+    shoppingList {
+      id
+      itemName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    householdDevices {
+      id
+      deviceName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    news {
+      id
+      title
+      text
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation DeleteWg($input: DeleteWGInput!, $condition: ModelWGConditionInput) {
@@ -24,6 +78,33 @@ mutation DeleteWg($input: DeleteWGInput!, $condition: ModelWGConditionInput) {
     address
     city
     plz
+    shoppingList {
+      id
+      itemName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    householdDevices {
+      id
+      deviceName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    news {
+      id
+      title
+      text
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation CreateUser(
@@ -35,6 +116,9 @@ mutation CreateUser(
     name
     email
     password
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation UpdateUser(
@@ -46,6 +130,9 @@ mutation UpdateUser(
     name
     email
     password
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation DeleteUser(
@@ -57,6 +144,9 @@ mutation DeleteUser(
     name
     email
     password
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation CreateShoppingList(
@@ -67,6 +157,9 @@ mutation CreateShoppingList(
     id
     itemName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation UpdateShoppingList(
@@ -77,6 +170,9 @@ mutation UpdateShoppingList(
     id
     itemName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation DeleteShoppingList(
@@ -87,6 +183,9 @@ mutation DeleteShoppingList(
     id
     itemName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation CreateHouseholdDevices(
@@ -97,6 +196,9 @@ mutation CreateHouseholdDevices(
     id
     deviceName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation UpdateHouseholdDevices(
@@ -107,6 +209,9 @@ mutation UpdateHouseholdDevices(
     id
     deviceName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation DeleteHouseholdDevices(
@@ -117,6 +222,9 @@ mutation DeleteHouseholdDevices(
     id
     deviceName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation CreateNews(
@@ -127,6 +235,9 @@ mutation CreateNews(
     id
     title
     text
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation UpdateNews(
@@ -137,6 +248,9 @@ mutation UpdateNews(
     id
     title
     text
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation DeleteNews(
@@ -147,5 +261,8 @@ mutation DeleteNews(
     id
     title
     text
+    _version
+    _deleted
+    _lastChangedAt
   }
 }

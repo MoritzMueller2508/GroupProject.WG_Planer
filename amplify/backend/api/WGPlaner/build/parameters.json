@@ -1,8 +1,7 @@
 {
-    "CreateAPIKey": 0,
     "AppSyncApiName": "wgplaner",
     "DynamoDBBillingMode": "PROVISIONED",
     "DynamoDBEnableServerSideEncryption": "false",
-    "S3DeploymentBucket": "amplify-wgplaner-dev-162427-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/63afcc7acee3fa09e81cd4bf2577bfe740964756"
+    "S3DeploymentBucket": "fake-bucket",
+    "S3DeploymentRootKey": "amplify-appsync-files/7dee97cfec1aadd9f7f0c85fc4cd259d012d65e8"
 }

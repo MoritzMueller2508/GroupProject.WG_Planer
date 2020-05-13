@@ -1,4 +1,54 @@
 # this is an auto generated file. This will be overwritten
+query SyncWgs(
+  $filter: ModelWGFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncWGS(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        id
+        itemName
+        value
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      householdDevices {
+        id
+        deviceName
+        value
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      news {
+        id
+        title
+        text
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
 query GetWg($id: ID!) {
   getWG(id: $id) {
     id
@@ -6,6 +56,33 @@ query GetWg($id: ID!) {
     address
     city
     plz
+    shoppingList {
+      id
+      itemName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    householdDevices {
+      id
+      deviceName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    news {
+      id
+      title
+      text
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 query ListWGs($filter: ModelWGFilterInput, $limit: Int, $nextToken: String) {
@@ -16,8 +93,61 @@ query ListWGs($filter: ModelWGFilterInput, $limit: Int, $nextToken: String) {
       address
       city
       plz
+      shoppingList {
+        id
+        itemName
+        value
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      householdDevices {
+        id
+        deviceName
+        value
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      news {
+        id
+        title
+        text
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncUsers(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      name
+      email
+      password
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
   }
 }
 query GetUser($id: ID!) {
@@ -26,6 +156,9 @@ query GetUser($id: ID!) {
     name
     email
     password
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 query ListUsers(
@@ -39,8 +172,36 @@ query ListUsers(
       name
       email
       password
+      _version
+      _deleted
+      _lastChangedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncShoppingLists(
+  $filter: ModelShoppingListFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncShoppingLists(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      itemName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
   }
 }
 query GetShoppingList($id: ID!) {
@@ -48,6 +209,9 @@ query GetShoppingList($id: ID!) {
     id
     itemName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 query ListShoppingLists(
@@ -60,8 +224,36 @@ query ListShoppingLists(
       id
       itemName
       value
+      _version
+      _deleted
+      _lastChangedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncHouseholdDevices(
+  $filter: ModelHouseholdDevicesFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncHouseholdDevices(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      deviceName
+      value
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
   }
 }
 query GetHouseholdDevices($id: ID!) {
@@ -69,6 +261,9 @@ query GetHouseholdDevices($id: ID!) {
     id
     deviceName
     value
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 query ListHouseholdDevicess(
@@ -81,8 +276,36 @@ query ListHouseholdDevicess(
       id
       deviceName
       value
+      _version
+      _deleted
+      _lastChangedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncNews(
+  $filter: ModelNewsFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncNews(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      title
+      text
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
   }
 }
 query GetNews($id: ID!) {
@@ -90,6 +313,9 @@ query GetNews($id: ID!) {
     id
     title
     text
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 query ListNewss(
@@ -102,7 +328,11 @@ query ListNewss(
       id
       title
       text
+      _version
+      _deleted
+      _lastChangedAt
     }
     nextToken
+    startedAt
   }
 }

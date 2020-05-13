@@ -40,11 +40,10 @@ public class AddShoppingListItem extends AppCompatActivity {
         private void save() {
             final String name = ((EditText) findViewById(R.id.editTxt_name)).getText().toString();
             final String value = ((EditText) findViewById(R.id.editTxt_value)).getText().toString();
-            final int valueInt = Integer.parseInt(value);
 
             CreateShoppingListInput input = CreateShoppingListInput.builder()
                     .itemName(name)
-                    .value(valueInt)
+                    .value(value)
                     .build();
 
             CreateShoppingListMutation addShoppingListMutation = CreateShoppingListMutation.builder()

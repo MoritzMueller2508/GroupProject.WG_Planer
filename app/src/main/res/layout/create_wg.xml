@@ -41,6 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_washingmachine_1">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/createWgName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans"
@@ -61,6 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ti_createName">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/createWgAdress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/address" />
@@ -78,6 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ti_createAdress">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/createWgCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans"
@@ -97,6 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ti_createCity">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/createWgPlz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/plz" />

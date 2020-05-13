@@ -2,13 +2,24 @@ package com.example.wgplaner;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.amazonaws.amplify.generated.graphql.GetWgQuery;
+import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
+import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.api.Response;
+import com.apollographql.apollo.exception.ApolloException;
+
+import javax.annotation.Nonnull;
+
 public class MyWg extends AppCompatActivity {
+    private AWSAppSyncClient mAWSAppSyncClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,4 +45,22 @@ public class MyWg extends AppCompatActivity {
         });
 
     }
+
+    public void runQuery(){
+        mAWSAppSyncClient.query(GetWgQuery.builder().build())
+                .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
+                .enqueue(queryCallback);
+    }
+
+    private GraphQLCall.Callback<GetWgQuery.Data> queryCallback = new GraphQLCall.Callback<GetWgQuery.Data>() {
+        @Override
+        public void onResponse(@Nonnull Response<GetWgQuery.Data> response) {
+            Log.i("Results", response.data().getWG().toString());
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("ERROR", e.toString());
+        }
+    };
 }
