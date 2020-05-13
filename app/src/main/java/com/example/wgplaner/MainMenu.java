@@ -4,8 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,7 +12,6 @@ import androidx.appcompat.widget.Toolbar;
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.UserStateDetails;
-
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
 
 public class MainMenu extends AppCompatActivity {
@@ -93,11 +91,20 @@ public class MainMenu extends AppCompatActivity {
         navMainMenu_To_MyWg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (firstLayout.access == 1) {
-                startActivity(new Intent(MainMenu.this, MyWg.class));
-                } else {
-                    return;
-                }
+                AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
+
+                            @Override
+                            public void onResult(UserStateDetails userStateDetails) {
+                                Log.i("INIT", "onResult: " + userStateDetails.getUserState());
+                                startActivity(new Intent(MainMenu.this, MyWg.class));
+                            }
+
+                            @Override
+                            public void onError(Exception e) {
+                                Log.e("INIT", "Initialization error.", e);
+                            }
+                        }
+                );
             }
         });
 
