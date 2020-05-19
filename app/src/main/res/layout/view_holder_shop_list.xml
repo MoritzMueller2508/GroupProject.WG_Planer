@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width ="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/main_line_title"
+        tools:text="Line 1"
+        android:layout_height="30sp"
+        android:layout_width="300sp"
+        android:layout_margin="5sp"/>
+    <TextView
+        android:id="@+id/main_line_quantity"
+        android:layout_width="50sp"
+        android:layout_height="30sp"
+        android:layout_toRightOf="@id/main_line_title"
+        android:layout_margin="5sp"/>
+
+    <ImageButton
+        android:id="@+id/btn_main_line_delete"
+        android:layout_width="20sp"
+        android:layout_height="30sp"
+        android:layout_margin="5sp"
+        android:layout_toRightOf="@id/main_line_quantity"
+        android:src="@drawable/ic_delete_black_24dp" />
+
+</RelativeLayout>

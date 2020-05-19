@@ -31,6 +31,7 @@ public class AccessWg extends AppCompatActivity {
     private AWSAppSyncClient mAWSAppSyncClient;
     private TextView constraintLayout;
     public static String idWgCode;
+    public static String wgCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,6 @@ public class AccessWg extends AppCompatActivity {
                 .cognitoUserPoolsAuthProvider(new BasicCognitoUserPoolsAuthProvider(mCognitoUserPool))
                 .build();
 
-//        textInputCode = findViewById(R.id.et_wgCode);
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
@@ -72,7 +72,6 @@ public class AccessWg extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 runQuery();
-
             }
         });
 
@@ -93,6 +92,7 @@ public class AccessWg extends AppCompatActivity {
 
             if (response.data().getWG() != null) {
                 Log.i("Results", response.data().getWG().toString());
+                wgCode = response.data().getWG().id();
                 idWgCode = "WG Code: " + response.data().getWG().id();
                 startActivity(new Intent(AccessWg.this, MyWg.class));
             }

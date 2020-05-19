@@ -7,32 +7,32 @@ subscription OnCreateWg {
     city
     plz
     shoppingList {
-      id
-      itemName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        itemName
+        value
+      }
+      nextToken
     }
     householdDevices {
-      id
-      deviceName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        deviceName
+        value
+      }
+      nextToken
     }
     news {
-      id
-      title
-      text
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        title
+        text
+      }
+      nextToken
     }
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 subscription OnUpdateWg {
@@ -43,32 +43,32 @@ subscription OnUpdateWg {
     city
     plz
     shoppingList {
-      id
-      itemName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        itemName
+        value
+      }
+      nextToken
     }
     householdDevices {
-      id
-      deviceName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        deviceName
+        value
+      }
+      nextToken
     }
     news {
-      id
-      title
-      text
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        title
+        text
+      }
+      nextToken
     }
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 subscription OnDeleteWg {
@@ -79,154 +79,247 @@ subscription OnDeleteWg {
     city
     plz
     shoppingList {
-      id
-      itemName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        itemName
+        value
+      }
+      nextToken
     }
     householdDevices {
-      id
-      deviceName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        deviceName
+        value
+      }
+      nextToken
     }
     news {
-      id
-      title
-      text
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        title
+        text
+      }
+      nextToken
     }
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-subscription OnCreateUser {
-  onCreateUser {
-    id
-    name
-    email
-    password
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-subscription OnUpdateUser {
-  onUpdateUser {
-    id
-    name
-    email
-    password
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-subscription OnDeleteUser {
-  onDeleteUser {
-    id
-    name
-    email
-    password
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 subscription OnCreateShoppingList {
   onCreateShoppingList {
     id
+    wgID
     itemName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 subscription OnUpdateShoppingList {
   onUpdateShoppingList {
     id
+    wgID
     itemName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 subscription OnDeleteShoppingList {
   onDeleteShoppingList {
     id
+    wgID
     itemName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 subscription OnCreateHouseholdDevices {
   onCreateHouseholdDevices {
     id
+    wgID
     deviceName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 subscription OnUpdateHouseholdDevices {
   onUpdateHouseholdDevices {
     id
+    wgID
     deviceName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 subscription OnDeleteHouseholdDevices {
   onDeleteHouseholdDevices {
     id
+    wgID
     deviceName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 subscription OnCreateNews {
   onCreateNews {
     id
+    wgID
     title
     text
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 subscription OnUpdateNews {
   onUpdateNews {
     id
+    wgID
     title
     text
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 subscription OnDeleteNews {
   onDeleteNews {
     id
+    wgID
     title
     text
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
