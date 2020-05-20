@@ -13,6 +13,8 @@ import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.UserStateDetails;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
+import com.amazonaws.mobileconnectors.cognitoauth.Auth;
+
 
 public class MainMenu extends AppCompatActivity {
     private AWSAppSyncClient mAWSAppSyncClient;
@@ -79,6 +81,8 @@ public class MainMenu extends AppCompatActivity {
         navMainMenu_To_Logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AWSMobileClient.getInstance().signOut();
+                Log.e("Sign out", "User is now signed out");
                 startActivity(new Intent(MainMenu.this, MainActivity.class));
             }
         });
