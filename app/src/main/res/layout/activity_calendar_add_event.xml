@@ -6,4 +6,69 @@
     android:layout_height="match_parent"
     tools:context="com.CalendarAddEvent">
 
+
+    <EditText
+        android:id="@+id/et_eventName"
+        android:layout_width="242dp"
+        android:layout_height="47dp"
+        android:background="@color/Roche_color"
+        android:ems="10"
+        android:hint="@string/event_name"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.358" />
+
+    <EditText
+        android:id="@+id/et_date"
+        android:layout_width="242dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/Roche_color"
+        android:ems="10"
+        android:hint="@string/date"
+        android:inputType="date"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/et_dateTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_eventName"
+        app:layout_constraintVertical_bias="0.005"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/et_dateTime"
+        android:layout_width="242dp"
+        android:layout_height="47dp"
+        android:background="@color/Roche_color"
+        android:ems="10"
+        android:hint="@string/time_hh_mm"
+        android:importantForAutofill="no"
+        android:inputType="time"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_eventName"
+        app:layout_constraintVertical_bias="0.165" />
+
+    <Button
+        android:id="@+id/btn_addEventToArray"
+        android:layout_width="120dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="53dp"
+        android:background="@color/Roche_color"
+        android:text="@string/add_event"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_dateTime" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

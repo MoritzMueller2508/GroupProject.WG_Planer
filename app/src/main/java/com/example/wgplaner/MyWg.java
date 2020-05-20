@@ -32,6 +32,7 @@ public class MyWg extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(view -> onBackPressed());
 
         MyWgToShoppingList();
+        MyWgToCalendar();
     }
 
     public void MyWgToShoppingList(){
@@ -45,6 +46,19 @@ public class MyWg extends AppCompatActivity {
         });
 
     }
+    public void MyWgToCalendar(){
+
+        ImageButton navMyWg_To_ShoppingList = (ImageButton) findViewById(R.id.btn_calendar);
+        navMyWg_To_ShoppingList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MyWg.this, Calendar.class));
+            }
+        });
+
+    }
+
+
 
     public void runQuery(){
         mAWSAppSyncClient.query(GetWgQuery.builder().build())

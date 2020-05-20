@@ -57,5 +57,9 @@
     <string name="title_activity_please_wait_redirection">PleaseWaitRedirection</string>
     <string name="redirection">Please wait while you are forwarded to the Login-Screen</string>
     <string name="id">Id #</string>
+    <string name="add_event">add Event</string>
+    <string name="event_name">Event Name</string>
+    <string name="date">Date</string>
+    <string name="time_hh_mm">Time (hh:mm)</string>
 
 </resources>
