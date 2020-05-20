@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import javax.annotation.Nonnull;
 
 import type.CreateShoppingListInput;
+import type.DeleteShoppingListInput;
 import type.ModelIDInput;
 import type.ModelShoppingListFilterInput;
 
@@ -40,13 +41,12 @@ import static com.example.wgplaner.AccessWg.wgCode;
 
 public class ShoppingList extends AppCompatActivity {
 
-    private TextInputLayout textInput;
+    private TextInputEditText textInput;
     private EditText deleteInput;
     private ListView list;
     RecyclerView mRecyclerView;
     private AWSAppSyncClient mAWSAppSyncClient;
     MyAdapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
     private ArrayList<ListShoppingListsQuery.Item> mItems;
     public static ModelIDInput wgCodeIdInput;
 
@@ -88,6 +88,7 @@ public class ShoppingList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 runMutation();
+
             }
         });
 
@@ -118,6 +119,8 @@ public class ShoppingList extends AppCompatActivity {
 
         mAWSAppSyncClient.mutate(CreateShoppingListMutation.builder().input(createShoppingListInput).build())
                 .enqueue(mutationCallback);
+
+        textInput.getText().clear();
     }
 
     private GraphQLCall.Callback<CreateShoppingListMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateShoppingListMutation.Data>() {
@@ -162,4 +165,7 @@ public class ShoppingList extends AppCompatActivity {
             Log.e("ERROR", e.toString());
         }
     };
+
+
 }
+
