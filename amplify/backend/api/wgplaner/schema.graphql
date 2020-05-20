@@ -1,0 +1,49 @@
+type WG @model @auth(rules: [{allow: private}]) {
+    id:ID!
+    name: String!
+    address: String!
+    city: String!
+    plz: String!
+    shoppingList: [ShoppingList] @connection(keyName:"WgShopList", fields: ["id"])
+    householdDevices: [HouseholdDevices] @connection(keyName:"WgDevices", fields: ["id"])
+    news: [News] @connection(keyName:"WgNews", fields:["id"])
+    calender: [Calendar] @connection(keyName: "WgCalendar", fields:["id"])
+}
+
+type ShoppingList @model @auth(rules: [{allow: private}])
+@key(name:"WgShopList", fields:["wgID", "itemName", "value"]) {
+    id: ID!
+    wgID: ID!
+    itemName: String!
+    value: String
+    wg: WG @connection(fields:["wgID"])
+}
+
+type HouseholdDevices @model @auth(rules: [{allow: private}])
+@key(name:"WgDevices", fields:["wgID","deviceName","value"]){
+    id: ID!
+    wgID: ID!
+    deviceName: String!
+    value: String
+    wg: WG @connection(fields:["wgID"])
+}
+
+type News @model @auth(rules: [{allow: private}])
+@key(name:"WgNews", fields:["wgID", "title", "text"]) {
+    id: ID!
+    wgID: ID!
+    title: String!
+    text: String
+    wg: WG @connection(fields:["wgID"])
+}
+
+
+type Calendar @model @auth(rules: [{allow: private}])
+@key(name:"WgCalendar", fields:["wgID", "events", "date", "time"]) {
+    id: ID!
+    wgID: ID!
+    events : String!
+    date: AWSDate!
+    time: AWSTime!
+    wg: WG @connection(fields:["wgID"])
+}
