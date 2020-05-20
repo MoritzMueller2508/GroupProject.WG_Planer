@@ -26,14 +26,12 @@ import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
 import javax.annotation.Nonnull;
 
 import type.CreateShoppingListInput;
-import type.DeleteShoppingListInput;
 import type.ModelIDInput;
 import type.ModelShoppingListFilterInput;
 

@@ -1,4 +1,46 @@
 # this is an auto generated file. This will be overwritten
+query SyncWgs(
+  $filter: ModelWGFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncWGS(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+        startedAt
+      }
+      householdDevices {
+        nextToken
+        startedAt
+      }
+      news {
+        nextToken
+        startedAt
+      }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
 query GetWg($id: ID!) {
   getWG(id: $id) {
     id
@@ -12,8 +54,12 @@ query GetWg($id: ID!) {
         wgID
         itemName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     householdDevices {
       items {
@@ -21,8 +67,12 @@ query GetWg($id: ID!) {
         wgID
         deviceName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     news {
       items {
@@ -30,9 +80,30 @@ query GetWg($id: ID!) {
         wgID
         title
         text
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
+    calender {
+      items {
+        id
+        wgID
+        events
+        date
+        time
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 query ListWGs($filter: ModelWGFilterInput, $limit: Int, $nextToken: String) {
@@ -45,15 +116,61 @@ query ListWGs($filter: ModelWGFilterInput, $limit: Int, $nextToken: String) {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncShoppingLists(
+  $filter: ModelShoppingListFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncShoppingLists(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      wgID
+      itemName
+      value
+      wg {
+        id
+        name
+        address
+        city
+        plz
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
   }
 }
 query GetShoppingList($id: ID!) {
@@ -70,14 +187,27 @@ query GetShoppingList($id: ID!) {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 query ListShoppingLists(
@@ -97,9 +227,51 @@ query ListShoppingLists(
         address
         city
         plz
+        _version
+        _deleted
+        _lastChangedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncHouseholdDevices(
+  $filter: ModelHouseholdDevicesFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncHouseholdDevices(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      wgID
+      deviceName
+      value
+      wg {
+        id
+        name
+        address
+        city
+        plz
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
   }
 }
 query GetHouseholdDevices($id: ID!) {
@@ -116,14 +288,27 @@ query GetHouseholdDevices($id: ID!) {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 query ListHouseholdDevicess(
@@ -143,9 +328,51 @@ query ListHouseholdDevicess(
         address
         city
         plz
+        _version
+        _deleted
+        _lastChangedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncNews(
+  $filter: ModelNewsFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncNews(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      wgID
+      title
+      text
+      wg {
+        id
+        name
+        address
+        city
+        plz
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
   }
 }
 query GetNews($id: ID!) {
@@ -162,14 +389,27 @@ query GetNews($id: ID!) {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 query ListNewss(
@@ -189,8 +429,119 @@ query ListNewss(
         address
         city
         plz
+        _version
+        _deleted
+        _lastChangedAt
       }
+      _version
+      _deleted
+      _lastChangedAt
     }
     nextToken
+    startedAt
+  }
+}
+query SyncCalendars(
+  $filter: ModelCalendarFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncCalendars(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      wgID
+      events
+      date
+      time
+      wg {
+        id
+        name
+        address
+        city
+        plz
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query GetCalendar($id: ID!) {
+  getCalendar(id: $id) {
+    id
+    wgID
+    events
+    date
+    time
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+        startedAt
+      }
+      householdDevices {
+        nextToken
+        startedAt
+      }
+      news {
+        nextToken
+        startedAt
+      }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+query ListCalendars(
+  $filter: ModelCalendarFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCalendars(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      wgID
+      events
+      date
+      time
+      wg {
+        id
+        name
+        address
+        city
+        plz
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
   }
 }

@@ -12,8 +12,12 @@ mutation CreateWg($input: CreateWGInput!, $condition: ModelWGConditionInput) {
         wgID
         itemName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     householdDevices {
       items {
@@ -21,8 +25,12 @@ mutation CreateWg($input: CreateWGInput!, $condition: ModelWGConditionInput) {
         wgID
         deviceName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     news {
       items {
@@ -30,9 +38,30 @@ mutation CreateWg($input: CreateWGInput!, $condition: ModelWGConditionInput) {
         wgID
         title
         text
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
+    calender {
+      items {
+        id
+        wgID
+        events
+        date
+        time
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation UpdateWg($input: UpdateWGInput!, $condition: ModelWGConditionInput) {
@@ -48,8 +77,12 @@ mutation UpdateWg($input: UpdateWGInput!, $condition: ModelWGConditionInput) {
         wgID
         itemName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     householdDevices {
       items {
@@ -57,8 +90,12 @@ mutation UpdateWg($input: UpdateWGInput!, $condition: ModelWGConditionInput) {
         wgID
         deviceName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     news {
       items {
@@ -66,9 +103,30 @@ mutation UpdateWg($input: UpdateWGInput!, $condition: ModelWGConditionInput) {
         wgID
         title
         text
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
+    calender {
+      items {
+        id
+        wgID
+        events
+        date
+        time
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation DeleteWg($input: DeleteWGInput!, $condition: ModelWGConditionInput) {
@@ -84,8 +142,12 @@ mutation DeleteWg($input: DeleteWGInput!, $condition: ModelWGConditionInput) {
         wgID
         itemName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     householdDevices {
       items {
@@ -93,8 +155,12 @@ mutation DeleteWg($input: DeleteWGInput!, $condition: ModelWGConditionInput) {
         wgID
         deviceName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     news {
       items {
@@ -102,9 +168,30 @@ mutation DeleteWg($input: DeleteWGInput!, $condition: ModelWGConditionInput) {
         wgID
         title
         text
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
+    calender {
+      items {
+        id
+        wgID
+        events
+        date
+        time
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation CreateShoppingList(
@@ -124,14 +211,27 @@ mutation CreateShoppingList(
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation UpdateShoppingList(
@@ -151,14 +251,27 @@ mutation UpdateShoppingList(
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation DeleteShoppingList(
@@ -178,14 +291,27 @@ mutation DeleteShoppingList(
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation CreateHouseholdDevices(
@@ -205,14 +331,27 @@ mutation CreateHouseholdDevices(
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation UpdateHouseholdDevices(
@@ -232,14 +371,27 @@ mutation UpdateHouseholdDevices(
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation DeleteHouseholdDevices(
@@ -259,14 +411,27 @@ mutation DeleteHouseholdDevices(
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation CreateNews(
@@ -286,14 +451,27 @@ mutation CreateNews(
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation UpdateNews(
@@ -313,14 +491,27 @@ mutation UpdateNews(
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation DeleteNews(
@@ -340,13 +531,149 @@ mutation DeleteNews(
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+mutation CreateCalendar(
+  $input: CreateCalendarInput!
+  $condition: ModelCalendarConditionInput
+) {
+  createCalendar(input: $input, condition: $condition) {
+    id
+    wgID
+    events
+    date
+    time
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+        startedAt
+      }
+      householdDevices {
+        nextToken
+        startedAt
+      }
+      news {
+        nextToken
+        startedAt
+      }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+mutation UpdateCalendar(
+  $input: UpdateCalendarInput!
+  $condition: ModelCalendarConditionInput
+) {
+  updateCalendar(input: $input, condition: $condition) {
+    id
+    wgID
+    events
+    date
+    time
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+        startedAt
+      }
+      householdDevices {
+        nextToken
+        startedAt
+      }
+      news {
+        nextToken
+        startedAt
+      }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+mutation DeleteCalendar(
+  $input: DeleteCalendarInput!
+  $condition: ModelCalendarConditionInput
+) {
+  deleteCalendar(input: $input, condition: $condition) {
+    id
+    wgID
+    events
+    date
+    time
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+        startedAt
+      }
+      householdDevices {
+        nextToken
+        startedAt
+      }
+      news {
+        nextToken
+        startedAt
+      }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }

@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ListView;
 
-import com.CalendarAddEvent;
-
 import java.util.ArrayList;
 import java.util.List;
 
