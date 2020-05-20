@@ -84,7 +84,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    app:errorEnabled="true"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -99,7 +102,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/password_Field" />
+                    android:hint="@string/password_Field"
+                    android:inputType="textPassword"
+                    app:errorEnabled="true"/> />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView

@@ -7,32 +7,32 @@ mutation CreateWg($input: CreateWGInput!, $condition: ModelWGConditionInput) {
     city
     plz
     shoppingList {
-      id
-      itemName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        itemName
+        value
+      }
+      nextToken
     }
     householdDevices {
-      id
-      deviceName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        deviceName
+        value
+      }
+      nextToken
     }
     news {
-      id
-      title
-      text
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        title
+        text
+      }
+      nextToken
     }
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 mutation UpdateWg($input: UpdateWGInput!, $condition: ModelWGConditionInput) {
@@ -43,32 +43,32 @@ mutation UpdateWg($input: UpdateWGInput!, $condition: ModelWGConditionInput) {
     city
     plz
     shoppingList {
-      id
-      itemName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        itemName
+        value
+      }
+      nextToken
     }
     householdDevices {
-      id
-      deviceName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        deviceName
+        value
+      }
+      nextToken
     }
     news {
-      id
-      title
-      text
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        title
+        text
+      }
+      nextToken
     }
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 mutation DeleteWg($input: DeleteWGInput!, $condition: ModelWGConditionInput) {
@@ -79,74 +79,32 @@ mutation DeleteWg($input: DeleteWGInput!, $condition: ModelWGConditionInput) {
     city
     plz
     shoppingList {
-      id
-      itemName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        itemName
+        value
+      }
+      nextToken
     }
     householdDevices {
-      id
-      deviceName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        deviceName
+        value
+      }
+      nextToken
     }
     news {
-      id
-      title
-      text
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        title
+        text
+      }
+      nextToken
     }
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-mutation CreateUser(
-  $input: CreateUserInput!
-  $condition: ModelUserConditionInput
-) {
-  createUser(input: $input, condition: $condition) {
-    id
-    name
-    email
-    password
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-mutation UpdateUser(
-  $input: UpdateUserInput!
-  $condition: ModelUserConditionInput
-) {
-  updateUser(input: $input, condition: $condition) {
-    id
-    name
-    email
-    password
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-mutation DeleteUser(
-  $input: DeleteUserInput!
-  $condition: ModelUserConditionInput
-) {
-  deleteUser(input: $input, condition: $condition) {
-    id
-    name
-    email
-    password
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 mutation CreateShoppingList(
@@ -155,11 +113,25 @@ mutation CreateShoppingList(
 ) {
   createShoppingList(input: $input, condition: $condition) {
     id
+    wgID
     itemName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 mutation UpdateShoppingList(
@@ -168,11 +140,25 @@ mutation UpdateShoppingList(
 ) {
   updateShoppingList(input: $input, condition: $condition) {
     id
+    wgID
     itemName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 mutation DeleteShoppingList(
@@ -181,11 +167,25 @@ mutation DeleteShoppingList(
 ) {
   deleteShoppingList(input: $input, condition: $condition) {
     id
+    wgID
     itemName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 mutation CreateHouseholdDevices(
@@ -194,11 +194,25 @@ mutation CreateHouseholdDevices(
 ) {
   createHouseholdDevices(input: $input, condition: $condition) {
     id
+    wgID
     deviceName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 mutation UpdateHouseholdDevices(
@@ -207,11 +221,25 @@ mutation UpdateHouseholdDevices(
 ) {
   updateHouseholdDevices(input: $input, condition: $condition) {
     id
+    wgID
     deviceName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 mutation DeleteHouseholdDevices(
@@ -220,11 +248,25 @@ mutation DeleteHouseholdDevices(
 ) {
   deleteHouseholdDevices(input: $input, condition: $condition) {
     id
+    wgID
     deviceName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 mutation CreateNews(
@@ -233,11 +275,25 @@ mutation CreateNews(
 ) {
   createNews(input: $input, condition: $condition) {
     id
+    wgID
     title
     text
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 mutation UpdateNews(
@@ -246,11 +302,25 @@ mutation UpdateNews(
 ) {
   updateNews(input: $input, condition: $condition) {
     id
+    wgID
     title
     text
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 mutation DeleteNews(
@@ -259,10 +329,24 @@ mutation DeleteNews(
 ) {
   deleteNews(input: $input, condition: $condition) {
     id
+    wgID
     title
     text
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/back"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -45,59 +46,131 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
-    <Button
-        android:id="@+id/btn_createWg_menu"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:background="@color/Roche_color"
-        android:text="@string/create_wg"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Menu"
-        app:layout_constraintVertical_bias="0.15" />
-
-    <Button
+    <ImageButton
         android:id="@+id/btn_accessWg_menu"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="50dp"
-        android:background="@color/Roche_color"
-        android:text="@string/access_wg"
-        android:textColor="@color/white"
+        android:contentDescription="Access WG"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="202dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:adjustViewBounds="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.818"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_createWg_menu"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
+        android:background="#00FFFFFF"
+        app:srcCompat="@drawable/login" />
 
-    <Button
-        android:id="@+id/btn_myWg_menu"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="50dp"
-        android:background="@color/Roche_color"
-        android:text="@string/my_wg"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_accessWg_menu"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
+    <ImageButton
         android:id="@+id/btn_logout_menu"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="50dp"
-        android:background="@color/Roche_color"
-        android:text="@string/logout"
-        android:textColor="@color/white"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="202dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="10dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="Logout"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.684"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_myWg_menu"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93"
+        app:srcCompat="@drawable/logout" />
+
+    <ImageButton
+        android:id="@+id/btn_myWg_menu"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="202dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="My WG"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appBarLayout"
+        app:layout_constraintVertical_bias="0.738"
+        app:srcCompat="@drawable/my_wg" />
+
+    <ImageButton
+        android:id="@+id/btn_createWg_menu"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="202dp"
+        android:layout_marginBottom="66dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="Add WG"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.315"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.087"
+        app:srcCompat="@drawable/add" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create WG"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.209"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.183" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Access WG"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_accessWg_menu"
+        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.351" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My WG"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_accessWg_menu"
+        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_accessWg_menu"
+        app:layout_constraintHorizontal_bias="0.797"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.683" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

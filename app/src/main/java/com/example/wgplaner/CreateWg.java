@@ -29,6 +29,8 @@ import type.CreateWGInput;
 public class CreateWg extends AppCompatActivity {
     private AWSAppSyncClient mAWSAppSyncClient;
 
+    public MainActivity firstLayout = new MainActivity();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +91,7 @@ public class CreateWg extends AppCompatActivity {
     private GraphQLCall.Callback<CreateWgMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateWgMutation.Data>() {
         @Override
         public void onResponse(@Nonnull Response<CreateWgMutation.Data> response) {
+            AccessWg.idWgCode = "WG Code: " + response.data().createWG().id();
             Log.i("Results", "Added Wg");
             startActivity(new Intent(CreateWg.this, MyWg.class));
         }

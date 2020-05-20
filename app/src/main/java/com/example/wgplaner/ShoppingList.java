@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amazonaws.amplify.generated.graphql.CreateShoppingListMutation;
@@ -23,26 +26,34 @@ import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
 import javax.annotation.Nonnull;
 
 import type.CreateShoppingListInput;
+import type.ModelIDInput;
+import type.ModelShoppingListFilterInput;
+
+import static com.example.wgplaner.AccessWg.wgCode;
 
 public class ShoppingList extends AppCompatActivity {
 
+    private TextInputLayout textInput;
+    private EditText deleteInput;
+    private ListView list;
+    RecyclerView mRecyclerView;
     private AWSAppSyncClient mAWSAppSyncClient;
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    MyAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ArrayList<ListShoppingListsQuery.Item> mDataset;
+    private ArrayList<ListShoppingListsQuery.Item> mItems;
+    public static ModelIDInput wgCodeIdInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_list);
-
         AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
 
             @Override
@@ -59,47 +70,48 @@ public class ShoppingList extends AppCompatActivity {
         mAWSAppSyncClient = AWSAppSyncClient.builder()
                 .context(getApplicationContext())
                 .awsConfiguration(new AWSConfiguration(getApplicationContext()))
-                .useClientDatabasePrefix(true)
                 .cognitoUserPoolsAuthProvider(new BasicCognitoUserPoolsAuthProvider(mCognitoUserPool))
                 .build();
 
-        final Toolbar toolbar = (Toolbar)findViewById(R.id.my_toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(view -> onBackPressed());
 
+        mRecyclerView = findViewById(R.id.shopping_list_recycler_view);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mAdapter = new MyAdapter(this);
+        mRecyclerView.setAdapter(mAdapter);
+
         Button btnAddItem = (Button) findViewById(R.id.btn_addShoppingListItem);
         btnAddItem.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 runMutation();
             }
         });
 
-        /**mRecyclerView = findViewById(R.id.list_show_ShoppingListItems);
+       /** ImageButton btnDeleteItem = (ImageButton) findViewById(R.id.btn_main_line_delete);
+        btnDeleteItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        // use a linear layout manager
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(this);
-        mRecyclerView.setAdapter(mAdapter);**/
-
+            }
+        });**/
     }
 
-   /** @Override
+    @Override
     public void onResume() {
         super.onResume();
-
         // Query list data when we return to the screen
         runQuery();
-    }**/
+    }
 
     public void runMutation(){
         final String name = ((TextInputEditText) findViewById(R.id.ti_addItem)).getText().toString();
         final String value = ((TextInputEditText) findViewById(R.id.ti_addValue)).getText().toString();
         CreateShoppingListInput createShoppingListInput = CreateShoppingListInput.builder()
+                .wgID(wgCode)
                 .itemName(name)
                 .value(value)
                 .build();
@@ -112,7 +124,7 @@ public class ShoppingList extends AppCompatActivity {
         @Override
         public void onResponse(@Nonnull Response<CreateShoppingListMutation.Data> response) {
             Log.i("Results", "Added Item");
-            //runQuery();
+            runQuery();
         }
 
         @Override
@@ -122,7 +134,10 @@ public class ShoppingList extends AppCompatActivity {
     };
 
     public void runQuery(){
-        mAWSAppSyncClient.query(ListShoppingListsQuery.builder().build())
+        wgCodeIdInput = ModelIDInput.builder().contains(wgCode).build();
+        mAWSAppSyncClient.query(ListShoppingListsQuery.builder()
+                .filter(ModelShoppingListFilterInput.builder().wgID(wgCodeIdInput).build())
+                .build())
                 .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
                 .enqueue(queryCallback);
     }
@@ -130,7 +145,16 @@ public class ShoppingList extends AppCompatActivity {
     private GraphQLCall.Callback<ListShoppingListsQuery.Data> queryCallback = new GraphQLCall.Callback<ListShoppingListsQuery.Data>() {
         @Override
         public void onResponse(@Nonnull Response<ListShoppingListsQuery.Data> response) {
-            Log.i("Results", response.data().listShoppingLists().items().toString());
+            mItems = new ArrayList<>(response.data().listShoppingLists().items());
+            Log.i("Results", mItems.toString());
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    mAdapter.setItems(mItems);
+                    mAdapter.notifyDataSetChanged();
+                }
+            });
         }
 
         @Override
@@ -138,6 +162,4 @@ public class ShoppingList extends AppCompatActivity {
             Log.e("ERROR", e.toString());
         }
     };
-
-
 }

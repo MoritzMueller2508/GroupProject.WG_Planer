@@ -4,49 +4,33 @@ type WG {
   address: String!
   city: String!
   plz: String!
-  shoppingList: ShoppingList
-  householdDevices: HouseholdDevices
-  news: News
-  _version: Int!
-  _deleted: Boolean
-  _lastChangedAt: AWSTimestamp!
-}
-
-type User {
-  id: ID!
-  name: String!
-  email: String!
-  password: String!
-  _version: Int!
-  _deleted: Boolean
-  _lastChangedAt: AWSTimestamp!
+  shoppingList(itemNameValue: ModelShoppingListWgShopListCompositeKeyConditionInput, filter: ModelShoppingListFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelShoppingListConnection
+  householdDevices(deviceNameValue: ModelHouseholdDevicesWgDevicesCompositeKeyConditionInput, filter: ModelHouseholdDevicesFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelHouseholdDevicesConnection
+  news(titleText: ModelNewsWgNewsCompositeKeyConditionInput, filter: ModelNewsFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelNewsConnection
 }
 
 type ShoppingList {
   id: ID!
+  wgID: ID!
   itemName: String!
   value: String
-  _version: Int!
-  _deleted: Boolean
-  _lastChangedAt: AWSTimestamp!
+  wg: WG
 }
 
 type HouseholdDevices {
   id: ID!
+  wgID: ID!
   deviceName: String!
   value: String
-  _version: Int!
-  _deleted: Boolean
-  _lastChangedAt: AWSTimestamp!
+  wg: WG
 }
 
 type News {
   id: ID!
+  wgID: ID!
   title: String!
   text: String
-  _version: Int!
-  _deleted: Boolean
-  _lastChangedAt: AWSTimestamp!
+  wg: WG
 }
 
 enum ModelSortDirection {
@@ -57,7 +41,6 @@ enum ModelSortDirection {
 type ModelWGConnection {
   items: [WG]
   nextToken: String
-  startedAt: AWSTimestamp
 }
 
 input ModelStringInput {
@@ -145,19 +128,12 @@ input ModelWGFilterInput {
 }
 
 type Query {
-  syncWGS(filter: ModelWGFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelWGConnection
   getWG(id: ID!): WG
   listWGs(filter: ModelWGFilterInput, limit: Int, nextToken: String): ModelWGConnection
-  syncUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUserConnection
-  getUser(id: ID!): User
-  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection
-  syncShoppingLists(filter: ModelShoppingListFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelShoppingListConnection
   getShoppingList(id: ID!): ShoppingList
   listShoppingLists(filter: ModelShoppingListFilterInput, limit: Int, nextToken: String): ModelShoppingListConnection
-  syncHouseholdDevices(filter: ModelHouseholdDevicesFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelHouseholdDevicesConnection
   getHouseholdDevices(id: ID!): HouseholdDevices
   listHouseholdDevicess(filter: ModelHouseholdDevicesFilterInput, limit: Int, nextToken: String): ModelHouseholdDevicesConnection
-  syncNews(filter: ModelNewsFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelNewsConnection
   getNews(id: ID!): News
   listNewss(filter: ModelNewsFilterInput, limit: Int, nextToken: String): ModelNewsConnection
 }
@@ -168,10 +144,6 @@ input CreateWGInput {
   address: String!
   city: String!
   plz: String!
-  _version: Int
-  wGShoppingListId: ID
-  wGHouseholdDevicesId: ID
-  wGNewsId: ID
 }
 
 input UpdateWGInput {
@@ -180,24 +152,16 @@ input UpdateWGInput {
   address: String
   city: String
   plz: String
-  _version: Int
-  wGShoppingListId: ID
-  wGHouseholdDevicesId: ID
-  wGNewsId: ID
 }
 
 input DeleteWGInput {
   id: ID
-  _version: Int
 }
 
 type Mutation {
   createWG(input: CreateWGInput!, condition: ModelWGConditionInput): WG
   updateWG(input: UpdateWGInput!, condition: ModelWGConditionInput): WG
   deleteWG(input: DeleteWGInput!, condition: ModelWGConditionInput): WG
-  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User
-  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User
-  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User
   createShoppingList(input: CreateShoppingListInput!, condition: ModelShoppingListConditionInput): ShoppingList
   updateShoppingList(input: UpdateShoppingListInput!, condition: ModelShoppingListConditionInput): ShoppingList
   deleteShoppingList(input: DeleteShoppingListInput!, condition: ModelShoppingListConditionInput): ShoppingList
@@ -236,9 +200,6 @@ type Subscription {
   onCreateWG: WG @aws_subscribe(mutations: ["createWG"])
   onUpdateWG: WG @aws_subscribe(mutations: ["updateWG"])
   onDeleteWG: WG @aws_subscribe(mutations: ["deleteWG"])
-  onCreateUser: User @aws_subscribe(mutations: ["createUser"])
-  onUpdateUser: User @aws_subscribe(mutations: ["updateUser"])
-  onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"])
   onCreateShoppingList: ShoppingList @aws_subscribe(mutations: ["createShoppingList"])
   onUpdateShoppingList: ShoppingList @aws_subscribe(mutations: ["updateShoppingList"])
   onDeleteShoppingList: ShoppingList @aws_subscribe(mutations: ["deleteShoppingList"])
@@ -250,60 +211,14 @@ type Subscription {
   onDeleteNews: News @aws_subscribe(mutations: ["deleteNews"])
 }
 
-type ModelUserConnection {
-  items: [User]
-  nextToken: String
-  startedAt: AWSTimestamp
-}
-
-input ModelUserFilterInput {
-  id: ModelIDInput
-  name: ModelStringInput
-  email: ModelStringInput
-  password: ModelStringInput
-  and: [ModelUserFilterInput]
-  or: [ModelUserFilterInput]
-  not: ModelUserFilterInput
-}
-
-input CreateUserInput {
-  id: ID
-  name: String!
-  email: String!
-  password: String!
-  _version: Int
-}
-
-input UpdateUserInput {
-  id: ID!
-  name: String
-  email: String
-  password: String
-  _version: Int
-}
-
-input DeleteUserInput {
-  id: ID
-  _version: Int
-}
-
-input ModelUserConditionInput {
-  name: ModelStringInput
-  email: ModelStringInput
-  password: ModelStringInput
-  and: [ModelUserConditionInput]
-  or: [ModelUserConditionInput]
-  not: ModelUserConditionInput
-}
-
 type ModelShoppingListConnection {
   items: [ShoppingList]
   nextToken: String
-  startedAt: AWSTimestamp
 }
 
 input ModelShoppingListFilterInput {
   id: ModelIDInput
+  wgID: ModelIDInput
   itemName: ModelStringInput
   value: ModelStringInput
   and: [ModelShoppingListFilterInput]
@@ -313,24 +228,24 @@ input ModelShoppingListFilterInput {
 
 input CreateShoppingListInput {
   id: ID
+  wgID: ID!
   itemName: String!
   value: String
-  _version: Int
 }
 
 input UpdateShoppingListInput {
   id: ID!
+  wgID: ID
   itemName: String
   value: String
-  _version: Int
 }
 
 input DeleteShoppingListInput {
   id: ID
-  _version: Int
 }
 
 input ModelShoppingListConditionInput {
+  wgID: ModelIDInput
   itemName: ModelStringInput
   value: ModelStringInput
   and: [ModelShoppingListConditionInput]
@@ -341,11 +256,11 @@ input ModelShoppingListConditionInput {
 type ModelHouseholdDevicesConnection {
   items: [HouseholdDevices]
   nextToken: String
-  startedAt: AWSTimestamp
 }
 
 input ModelHouseholdDevicesFilterInput {
   id: ModelIDInput
+  wgID: ModelIDInput
   deviceName: ModelStringInput
   value: ModelStringInput
   and: [ModelHouseholdDevicesFilterInput]
@@ -355,24 +270,24 @@ input ModelHouseholdDevicesFilterInput {
 
 input CreateHouseholdDevicesInput {
   id: ID
+  wgID: ID!
   deviceName: String!
   value: String
-  _version: Int
 }
 
 input UpdateHouseholdDevicesInput {
   id: ID!
+  wgID: ID
   deviceName: String
   value: String
-  _version: Int
 }
 
 input DeleteHouseholdDevicesInput {
   id: ID
-  _version: Int
 }
 
 input ModelHouseholdDevicesConditionInput {
+  wgID: ModelIDInput
   deviceName: ModelStringInput
   value: ModelStringInput
   and: [ModelHouseholdDevicesConditionInput]
@@ -383,11 +298,11 @@ input ModelHouseholdDevicesConditionInput {
 type ModelNewsConnection {
   items: [News]
   nextToken: String
-  startedAt: AWSTimestamp
 }
 
 input ModelNewsFilterInput {
   id: ModelIDInput
+  wgID: ModelIDInput
   title: ModelStringInput
   text: ModelStringInput
   and: [ModelNewsFilterInput]
@@ -397,27 +312,72 @@ input ModelNewsFilterInput {
 
 input CreateNewsInput {
   id: ID
+  wgID: ID!
   title: String!
   text: String
-  _version: Int
 }
 
 input UpdateNewsInput {
   id: ID!
+  wgID: ID
   title: String
   text: String
-  _version: Int
 }
 
 input DeleteNewsInput {
   id: ID
-  _version: Int
 }
 
 input ModelNewsConditionInput {
+  wgID: ModelIDInput
   title: ModelStringInput
   text: ModelStringInput
   and: [ModelNewsConditionInput]
   or: [ModelNewsConditionInput]
   not: ModelNewsConditionInput
+}
+
+input ModelShoppingListWgShopListCompositeKeyConditionInput {
+  eq: ModelShoppingListWgShopListCompositeKeyInput
+  le: ModelShoppingListWgShopListCompositeKeyInput
+  lt: ModelShoppingListWgShopListCompositeKeyInput
+  ge: ModelShoppingListWgShopListCompositeKeyInput
+  gt: ModelShoppingListWgShopListCompositeKeyInput
+  between: [ModelShoppingListWgShopListCompositeKeyInput]
+  beginsWith: ModelShoppingListWgShopListCompositeKeyInput
+}
+
+input ModelShoppingListWgShopListCompositeKeyInput {
+  itemName: String
+  value: String
+}
+
+input ModelHouseholdDevicesWgDevicesCompositeKeyConditionInput {
+  eq: ModelHouseholdDevicesWgDevicesCompositeKeyInput
+  le: ModelHouseholdDevicesWgDevicesCompositeKeyInput
+  lt: ModelHouseholdDevicesWgDevicesCompositeKeyInput
+  ge: ModelHouseholdDevicesWgDevicesCompositeKeyInput
+  gt: ModelHouseholdDevicesWgDevicesCompositeKeyInput
+  between: [ModelHouseholdDevicesWgDevicesCompositeKeyInput]
+  beginsWith: ModelHouseholdDevicesWgDevicesCompositeKeyInput
+}
+
+input ModelHouseholdDevicesWgDevicesCompositeKeyInput {
+  deviceName: String
+  value: String
+}
+
+input ModelNewsWgNewsCompositeKeyConditionInput {
+  eq: ModelNewsWgNewsCompositeKeyInput
+  le: ModelNewsWgNewsCompositeKeyInput
+  lt: ModelNewsWgNewsCompositeKeyInput
+  ge: ModelNewsWgNewsCompositeKeyInput
+  gt: ModelNewsWgNewsCompositeKeyInput
+  between: [ModelNewsWgNewsCompositeKeyInput]
+  beginsWith: ModelNewsWgNewsCompositeKeyInput
+}
+
+input ModelNewsWgNewsCompositeKeyInput {
+  title: String
+  text: String
 }

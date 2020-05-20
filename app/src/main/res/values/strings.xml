@@ -61,5 +61,6 @@
     <string name="event_name">Event Name</string>
     <string name="date">Date</string>
     <string name="time_hh_mm">Time (hh:mm)</string>
+    <string name="wg_code">WG Code</string>
 
 </resources>

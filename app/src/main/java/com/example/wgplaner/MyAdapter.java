@@ -14,45 +14,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private List<ListShoppingListsQuery.Item> mData = new ArrayList<>();
+
+    private List<ListShoppingListsQuery.Item> mData = new ArrayList<>();;
     private LayoutInflater mInflater;
 
 
+    // data is passed into the constructor
     MyAdapter(Context context) {
         this.mInflater = LayoutInflater.from(context);
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-
-        public TextView txt_itemName;
-        public TextView txt_value;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            txt_itemName = itemView.findViewById(R.id.txt_name);
-            txt_value = itemView.findViewById(R.id.txt_value);
-        }
-
-        void bindData(ListShoppingListsQuery.Item item) {
-            txt_itemName.setText(item.itemName());
-            txt_value.setText(item.value());
-        }
-    }
-
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(ArrayList myDataset) {
-        mData = myDataset;
-    }
+    // inflates the row layout from xml when needed
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.recyclerview_row, parent, false);
+        View view = mInflater.inflate(R.layout.view_holder_shop_list, parent, false);
         return new ViewHolder(view);
     }
 
+    // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.bindData(mData.get(position));
+        //holder.deleteBtn.setOnClickListener(view -> removeItem(position));
     }
+
     // total number of rows
     @Override
     public int getItemCount() {
@@ -63,5 +48,26 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void setItems(List<ListShoppingListsQuery.Item> items) {
         mData = items;
     }
+    /**private void removeItem(int position) {
+        mShopItems.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, mShopItems.size());
+    }**/
 
+    // stores and recycles views as they are scrolled off screen
+    class ViewHolder extends RecyclerView.ViewHolder {
+        TextView txt_name;
+        TextView txt_quantity;
+
+        ViewHolder(View itemView) {
+            super(itemView);
+            txt_name = itemView.findViewById(R.id.main_line_title);
+            txt_quantity = itemView.findViewById(R.id.main_line_quantity);
+        }
+
+        void bindData(ListShoppingListsQuery.Item item) {
+            txt_name.setText(item.itemName());
+            txt_quantity.setText(item.value());
+        }
+    }
 }

@@ -31,10 +31,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_addItemLayout"
-        android:layout_width="224dp"
-        android:layout_height="57dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout5">
 
@@ -70,7 +72,7 @@
         android:layout_height="38dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="16dp"
         android:background="@color/Roche_color"
         android:fontFamily="@font/open_sans"
         android:text="@string/addItem"
@@ -83,7 +85,7 @@
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout5" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_show_ShoppingListItems"
+        android:id="@+id/shopping_list_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

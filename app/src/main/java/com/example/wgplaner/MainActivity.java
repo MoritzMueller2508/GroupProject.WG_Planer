@@ -1,25 +1,17 @@
 package com.example.wgplaner;
 
 import android.content.Intent;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.amplifyframework.AmplifyException;
-import com.amplifyframework.api.aws.AWSApiPlugin;
-import com.amplifyframework.core.Amplify;
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.SignInUIOptions;
 import com.amazonaws.mobile.client.UserStateDetails;
-import com.amazonaws.mobile.client.UserStateListener;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -57,36 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("INIT", e.toString());
             }
         });
-
-
-        /**Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        **/
-
-
-       /** try {
-            Amplify.addPlugin(new AWSApiPlugin());
-            Amplify.configure(getApplicationContext());
-            Log.i("ApiQuickstart", "All set and ready to go!");
-        } catch (AmplifyException exception) {
-            Log.e("ApiQuickstart", exception.getMessage(), exception);
-        }
-
-        loginScreenButton_HomeMenu();
-        registerScreenButton_HomeMenu();
-
-    }aws**/
-        
-
-
 
     }
 

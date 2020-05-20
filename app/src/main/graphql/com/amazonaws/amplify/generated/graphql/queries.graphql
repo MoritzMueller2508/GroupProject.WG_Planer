@@ -1,54 +1,4 @@
 # this is an auto generated file. This will be overwritten
-query SyncWgs(
-  $filter: ModelWGFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncWGS(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      name
-      address
-      city
-      plz
-      shoppingList {
-        id
-        itemName
-        value
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      householdDevices {
-        id
-        deviceName
-        value
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      news {
-        id
-        title
-        text
-        _version
-        _deleted
-        _lastChangedAt
-      }
-      _version
-      _deleted
-      _lastChangedAt
-    }
-    nextToken
-    startedAt
-  }
-}
 query GetWg($id: ID!) {
   getWG(id: $id) {
     id
@@ -57,32 +7,32 @@ query GetWg($id: ID!) {
     city
     plz
     shoppingList {
-      id
-      itemName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        itemName
+        value
+      }
+      nextToken
     }
     householdDevices {
-      id
-      deviceName
-      value
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        deviceName
+        value
+      }
+      nextToken
     }
     news {
-      id
-      title
-      text
-      _version
-      _deleted
-      _lastChangedAt
+      items {
+        id
+        wgID
+        title
+        text
+      }
+      nextToken
     }
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 query ListWGs($filter: ModelWGFilterInput, $limit: Int, $nextToken: String) {
@@ -94,124 +44,40 @@ query ListWGs($filter: ModelWGFilterInput, $limit: Int, $nextToken: String) {
       city
       plz
       shoppingList {
-        id
-        itemName
-        value
-        _version
-        _deleted
-        _lastChangedAt
+        nextToken
       }
       householdDevices {
-        id
-        deviceName
-        value
-        _version
-        _deleted
-        _lastChangedAt
+        nextToken
       }
       news {
-        id
-        title
-        text
-        _version
-        _deleted
-        _lastChangedAt
+        nextToken
       }
-      _version
-      _deleted
-      _lastChangedAt
     }
     nextToken
-    startedAt
-  }
-}
-query SyncUsers(
-  $filter: ModelUserFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncUsers(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      name
-      email
-      password
-      _version
-      _deleted
-      _lastChangedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query GetUser($id: ID!) {
-  getUser(id: $id) {
-    id
-    name
-    email
-    password
-    _version
-    _deleted
-    _lastChangedAt
-  }
-}
-query ListUsers(
-  $filter: ModelUserFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      name
-      email
-      password
-      _version
-      _deleted
-      _lastChangedAt
-    }
-    nextToken
-    startedAt
-  }
-}
-query SyncShoppingLists(
-  $filter: ModelShoppingListFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncShoppingLists(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      itemName
-      value
-      _version
-      _deleted
-      _lastChangedAt
-    }
-    nextToken
-    startedAt
   }
 }
 query GetShoppingList($id: ID!) {
   getShoppingList(id: $id) {
     id
+    wgID
     itemName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 query ListShoppingLists(
@@ -222,48 +88,42 @@ query ListShoppingLists(
   listShoppingLists(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      wgID
       itemName
       value
-      _version
-      _deleted
-      _lastChangedAt
+      wg {
+        id
+        name
+        address
+        city
+        plz
+      }
     }
     nextToken
-    startedAt
-  }
-}
-query SyncHouseholdDevices(
-  $filter: ModelHouseholdDevicesFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncHouseholdDevices(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      deviceName
-      value
-      _version
-      _deleted
-      _lastChangedAt
-    }
-    nextToken
-    startedAt
   }
 }
 query GetHouseholdDevices($id: ID!) {
   getHouseholdDevices(id: $id) {
     id
+    wgID
     deviceName
     value
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 query ListHouseholdDevicess(
@@ -274,48 +134,42 @@ query ListHouseholdDevicess(
   listHouseholdDevicess(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      wgID
       deviceName
       value
-      _version
-      _deleted
-      _lastChangedAt
+      wg {
+        id
+        name
+        address
+        city
+        plz
+      }
     }
     nextToken
-    startedAt
-  }
-}
-query SyncNews(
-  $filter: ModelNewsFilterInput
-  $limit: Int
-  $nextToken: String
-  $lastSync: AWSTimestamp
-) {
-  syncNews(
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    lastSync: $lastSync
-  ) {
-    items {
-      id
-      title
-      text
-      _version
-      _deleted
-      _lastChangedAt
-    }
-    nextToken
-    startedAt
   }
 }
 query GetNews($id: ID!) {
   getNews(id: $id) {
     id
+    wgID
     title
     text
-    _version
-    _deleted
-    _lastChangedAt
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+      }
+      householdDevices {
+        nextToken
+      }
+      news {
+        nextToken
+      }
+    }
   }
 }
 query ListNewss(
@@ -326,13 +180,17 @@ query ListNewss(
   listNewss(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
+      wgID
       title
       text
-      _version
-      _deleted
-      _lastChangedAt
+      wg {
+        id
+        name
+        address
+        city
+        plz
+      }
     }
     nextToken
-    startedAt
   }
 }
