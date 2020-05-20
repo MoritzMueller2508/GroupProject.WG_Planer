@@ -12,8 +12,12 @@ subscription OnCreateWg {
         wgID
         itemName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     householdDevices {
       items {
@@ -21,8 +25,12 @@ subscription OnCreateWg {
         wgID
         deviceName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     news {
       items {
@@ -30,9 +38,30 @@ subscription OnCreateWg {
         wgID
         title
         text
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
+    calender {
+      items {
+        id
+        wgID
+        events
+        date
+        time
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnUpdateWg {
@@ -48,8 +77,12 @@ subscription OnUpdateWg {
         wgID
         itemName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     householdDevices {
       items {
@@ -57,8 +90,12 @@ subscription OnUpdateWg {
         wgID
         deviceName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     news {
       items {
@@ -66,9 +103,30 @@ subscription OnUpdateWg {
         wgID
         title
         text
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
+    calender {
+      items {
+        id
+        wgID
+        events
+        date
+        time
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnDeleteWg {
@@ -84,8 +142,12 @@ subscription OnDeleteWg {
         wgID
         itemName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     householdDevices {
       items {
@@ -93,8 +155,12 @@ subscription OnDeleteWg {
         wgID
         deviceName
         value
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
     news {
       items {
@@ -102,9 +168,30 @@ subscription OnDeleteWg {
         wgID
         title
         text
+        _version
+        _deleted
+        _lastChangedAt
       }
       nextToken
+      startedAt
     }
+    calender {
+      items {
+        id
+        wgID
+        events
+        date
+        time
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnCreateShoppingList {
@@ -121,14 +208,27 @@ subscription OnCreateShoppingList {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnUpdateShoppingList {
@@ -145,14 +245,27 @@ subscription OnUpdateShoppingList {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnDeleteShoppingList {
@@ -169,14 +282,27 @@ subscription OnDeleteShoppingList {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnCreateHouseholdDevices {
@@ -193,14 +319,27 @@ subscription OnCreateHouseholdDevices {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnUpdateHouseholdDevices {
@@ -217,14 +356,27 @@ subscription OnUpdateHouseholdDevices {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnDeleteHouseholdDevices {
@@ -241,14 +393,27 @@ subscription OnDeleteHouseholdDevices {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnCreateNews {
@@ -265,14 +430,27 @@ subscription OnCreateNews {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnUpdateNews {
@@ -289,14 +467,27 @@ subscription OnUpdateNews {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 subscription OnDeleteNews {
@@ -313,13 +504,140 @@ subscription OnDeleteNews {
       plz
       shoppingList {
         nextToken
+        startedAt
       }
       householdDevices {
         nextToken
+        startedAt
       }
       news {
         nextToken
+        startedAt
       }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
     }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnCreateCalendar {
+  onCreateCalendar {
+    id
+    wgID
+    events
+    date
+    time
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+        startedAt
+      }
+      householdDevices {
+        nextToken
+        startedAt
+      }
+      news {
+        nextToken
+        startedAt
+      }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateCalendar {
+  onUpdateCalendar {
+    id
+    wgID
+    events
+    date
+    time
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+        startedAt
+      }
+      householdDevices {
+        nextToken
+        startedAt
+      }
+      news {
+        nextToken
+        startedAt
+      }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteCalendar {
+  onDeleteCalendar {
+    id
+    wgID
+    events
+    date
+    time
+    wg {
+      id
+      name
+      address
+      city
+      plz
+      shoppingList {
+        nextToken
+        startedAt
+      }
+      householdDevices {
+        nextToken
+        startedAt
+      }
+      news {
+        nextToken
+        startedAt
+      }
+      calender {
+        nextToken
+        startedAt
+      }
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
