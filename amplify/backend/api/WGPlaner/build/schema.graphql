@@ -7,6 +7,10 @@ type WG {
   shoppingList(itemNameValue: ModelShoppingListWgShopListCompositeKeyConditionInput, filter: ModelShoppingListFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelShoppingListConnection
   householdDevices(deviceNameValue: ModelHouseholdDevicesWgDevicesCompositeKeyConditionInput, filter: ModelHouseholdDevicesFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelHouseholdDevicesConnection
   news(titleText: ModelNewsWgNewsCompositeKeyConditionInput, filter: ModelNewsFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelNewsConnection
+  calender(eventsDateTime: ModelCalendarWgCalendarCompositeKeyConditionInput, filter: ModelCalendarFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelCalendarConnection
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
 }
 
 type ShoppingList {
@@ -15,6 +19,9 @@ type ShoppingList {
   itemName: String!
   value: String
   wg: WG
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
 }
 
 type HouseholdDevices {
@@ -23,6 +30,9 @@ type HouseholdDevices {
   deviceName: String!
   value: String
   wg: WG
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
 }
 
 type News {
@@ -31,6 +41,21 @@ type News {
   title: String!
   text: String
   wg: WG
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+type Calendar {
+  id: ID!
+  wgID: ID!
+  events: String!
+  date: AWSDate!
+  time: AWSTime!
+  wg: WG
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
 }
 
 enum ModelSortDirection {
@@ -41,6 +66,7 @@ enum ModelSortDirection {
 type ModelWGConnection {
   items: [WG]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelStringInput {
@@ -128,14 +154,21 @@ input ModelWGFilterInput {
 }
 
 type Query {
+  syncWGS(filter: ModelWGFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelWGConnection
   getWG(id: ID!): WG
   listWGs(filter: ModelWGFilterInput, limit: Int, nextToken: String): ModelWGConnection
+  syncShoppingLists(filter: ModelShoppingListFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelShoppingListConnection
   getShoppingList(id: ID!): ShoppingList
   listShoppingLists(filter: ModelShoppingListFilterInput, limit: Int, nextToken: String): ModelShoppingListConnection
+  syncHouseholdDevices(filter: ModelHouseholdDevicesFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelHouseholdDevicesConnection
   getHouseholdDevices(id: ID!): HouseholdDevices
   listHouseholdDevicess(filter: ModelHouseholdDevicesFilterInput, limit: Int, nextToken: String): ModelHouseholdDevicesConnection
+  syncNews(filter: ModelNewsFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelNewsConnection
   getNews(id: ID!): News
   listNewss(filter: ModelNewsFilterInput, limit: Int, nextToken: String): ModelNewsConnection
+  syncCalendars(filter: ModelCalendarFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelCalendarConnection
+  getCalendar(id: ID!): Calendar
+  listCalendars(filter: ModelCalendarFilterInput, limit: Int, nextToken: String): ModelCalendarConnection
 }
 
 input CreateWGInput {
@@ -144,6 +177,7 @@ input CreateWGInput {
   address: String!
   city: String!
   plz: String!
+  _version: Int
 }
 
 input UpdateWGInput {
@@ -152,10 +186,12 @@ input UpdateWGInput {
   address: String
   city: String
   plz: String
+  _version: Int
 }
 
 input DeleteWGInput {
   id: ID
+  _version: Int
 }
 
 type Mutation {
@@ -171,6 +207,9 @@ type Mutation {
   createNews(input: CreateNewsInput!, condition: ModelNewsConditionInput): News
   updateNews(input: UpdateNewsInput!, condition: ModelNewsConditionInput): News
   deleteNews(input: DeleteNewsInput!, condition: ModelNewsConditionInput): News
+  createCalendar(input: CreateCalendarInput!, condition: ModelCalendarConditionInput): Calendar
+  updateCalendar(input: UpdateCalendarInput!, condition: ModelCalendarConditionInput): Calendar
+  deleteCalendar(input: DeleteCalendarInput!, condition: ModelCalendarConditionInput): Calendar
 }
 
 input ModelWGConditionInput {
@@ -209,11 +248,26 @@ type Subscription {
   onCreateNews: News @aws_subscribe(mutations: ["createNews"])
   onUpdateNews: News @aws_subscribe(mutations: ["updateNews"])
   onDeleteNews: News @aws_subscribe(mutations: ["deleteNews"])
+  onCreateCalendar: Calendar @aws_subscribe(mutations: ["createCalendar"])
+  onUpdateCalendar: Calendar @aws_subscribe(mutations: ["updateCalendar"])
+  onDeleteCalendar: Calendar @aws_subscribe(mutations: ["deleteCalendar"])
+}
+
+input WGInput {
+  id: ID!
+  name: String!
+  address: String!
+  city: String!
+  plz: String!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
 }
 
 type ModelShoppingListConnection {
   items: [ShoppingList]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelShoppingListFilterInput {
@@ -231,6 +285,8 @@ input CreateShoppingListInput {
   wgID: ID!
   itemName: String!
   value: String
+  wg: WGInput
+  _version: Int
 }
 
 input UpdateShoppingListInput {
@@ -238,10 +294,13 @@ input UpdateShoppingListInput {
   wgID: ID
   itemName: String
   value: String
+  wg: WGInput
+  _version: Int
 }
 
 input DeleteShoppingListInput {
   id: ID
+  _version: Int
 }
 
 input ModelShoppingListConditionInput {
@@ -253,9 +312,21 @@ input ModelShoppingListConditionInput {
   not: ModelShoppingListConditionInput
 }
 
+input ShoppingListInput {
+  id: ID!
+  wgID: ID!
+  itemName: String!
+  value: String
+  wg: WGInput
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
 type ModelHouseholdDevicesConnection {
   items: [HouseholdDevices]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelHouseholdDevicesFilterInput {
@@ -273,6 +344,8 @@ input CreateHouseholdDevicesInput {
   wgID: ID!
   deviceName: String!
   value: String
+  wg: WGInput
+  _version: Int
 }
 
 input UpdateHouseholdDevicesInput {
@@ -280,10 +353,13 @@ input UpdateHouseholdDevicesInput {
   wgID: ID
   deviceName: String
   value: String
+  wg: WGInput
+  _version: Int
 }
 
 input DeleteHouseholdDevicesInput {
   id: ID
+  _version: Int
 }
 
 input ModelHouseholdDevicesConditionInput {
@@ -295,9 +371,21 @@ input ModelHouseholdDevicesConditionInput {
   not: ModelHouseholdDevicesConditionInput
 }
 
+input HouseholdDevicesInput {
+  id: ID!
+  wgID: ID!
+  deviceName: String!
+  value: String
+  wg: WGInput
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
 type ModelNewsConnection {
   items: [News]
   nextToken: String
+  startedAt: AWSTimestamp
 }
 
 input ModelNewsFilterInput {
@@ -315,6 +403,8 @@ input CreateNewsInput {
   wgID: ID!
   title: String!
   text: String
+  wg: WGInput
+  _version: Int
 }
 
 input UpdateNewsInput {
@@ -322,10 +412,13 @@ input UpdateNewsInput {
   wgID: ID
   title: String
   text: String
+  wg: WGInput
+  _version: Int
 }
 
 input DeleteNewsInput {
   id: ID
+  _version: Int
 }
 
 input ModelNewsConditionInput {
@@ -335,6 +428,69 @@ input ModelNewsConditionInput {
   and: [ModelNewsConditionInput]
   or: [ModelNewsConditionInput]
   not: ModelNewsConditionInput
+}
+
+input NewsInput {
+  id: ID!
+  wgID: ID!
+  title: String!
+  text: String
+  wg: WGInput
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+type ModelCalendarConnection {
+  items: [Calendar]
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelCalendarFilterInput {
+  id: ModelIDInput
+  wgID: ModelIDInput
+  events: ModelStringInput
+  date: ModelStringInput
+  time: ModelStringInput
+  and: [ModelCalendarFilterInput]
+  or: [ModelCalendarFilterInput]
+  not: ModelCalendarFilterInput
+}
+
+input CreateCalendarInput {
+  id: ID
+  wgID: ID!
+  events: String!
+  date: AWSDate!
+  time: AWSTime!
+  wg: WGInput
+  _version: Int
+}
+
+input UpdateCalendarInput {
+  id: ID!
+  wgID: ID
+  events: String
+  date: AWSDate
+  time: AWSTime
+  wg: WGInput
+  _version: Int
+}
+
+input DeleteCalendarInput {
+  id: ID
+  _version: Int
+}
+
+input ModelCalendarConditionInput {
+  wgID: ModelIDInput
+  events: ModelStringInput
+  date: ModelStringInput
+  time: ModelStringInput
+  and: [ModelCalendarConditionInput]
+  or: [ModelCalendarConditionInput]
+  not: ModelCalendarConditionInput
 }
 
 input ModelShoppingListWgShopListCompositeKeyConditionInput {
@@ -380,4 +536,20 @@ input ModelNewsWgNewsCompositeKeyConditionInput {
 input ModelNewsWgNewsCompositeKeyInput {
   title: String
   text: String
+}
+
+input ModelCalendarWgCalendarCompositeKeyConditionInput {
+  eq: ModelCalendarWgCalendarCompositeKeyInput
+  le: ModelCalendarWgCalendarCompositeKeyInput
+  lt: ModelCalendarWgCalendarCompositeKeyInput
+  ge: ModelCalendarWgCalendarCompositeKeyInput
+  gt: ModelCalendarWgCalendarCompositeKeyInput
+  between: [ModelCalendarWgCalendarCompositeKeyInput]
+  beginsWith: ModelCalendarWgCalendarCompositeKeyInput
+}
+
+input ModelCalendarWgCalendarCompositeKeyInput {
+  events: String
+  date: AWSDate
+  time: String
 }
