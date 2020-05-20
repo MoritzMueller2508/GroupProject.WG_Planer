@@ -33,6 +33,8 @@ import java.util.ArrayList;
 import javax.annotation.Nonnull;
 
 import type.CreateShoppingListInput;
+import type.ModelIDInput;
+import type.ModelShoppingListFilterInput;
 
 import static com.example.wgplaner.AccessWg.wgCode;
 
@@ -46,6 +48,7 @@ public class ShoppingList extends AppCompatActivity {
     MyAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<ListShoppingListsQuery.Item> mItems;
+    public static ModelIDInput wgCodeIdInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,7 +134,10 @@ public class ShoppingList extends AppCompatActivity {
     };
 
     public void runQuery(){
-        mAWSAppSyncClient.query(ListShoppingListsQuery.builder().build())
+        wgCodeIdInput = ModelIDInput.builder().contains(wgCode).build();
+        mAWSAppSyncClient.query(ListShoppingListsQuery.builder()
+                .filter(ModelShoppingListFilterInput.builder().wgID(wgCodeIdInput).build())
+                .build())
                 .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
                 .enqueue(queryCallback);
     }
