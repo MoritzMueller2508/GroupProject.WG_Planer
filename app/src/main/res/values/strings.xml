@@ -62,5 +62,6 @@
     <string name="date">Date</string>
     <string name="time_hh_mm">Time (hh:mm)</string>
     <string name="wg_code">WG Code</string>
+    <string name="removeItem">delete</string>
 
 </resources>

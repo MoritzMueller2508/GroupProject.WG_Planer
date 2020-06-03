@@ -48,11 +48,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public void setItems(List<ListShoppingListsQuery.Item> items) {
         mData = items;
     }
-    /**private void removeItem(int position) {
-        mShopItems.remove(position);
-        notifyItemRemoved(position);
-        notifyItemRangeChanged(position, mShopItems.size());
-    }**/
+
+    public int getID(String item){
+        return mData.indexOf(item);
+    }
+
+    public String removeItem(String item) {
+        int position = getID(item);
+        mData.remove(position);
+        notifyItemChanged(position);
+        notifyItemChanged(position, mData.size());
+        String positionStr = Integer.toString(position);
+        return positionStr;
+    }
 
     // stores and recycles views as they are scrolled off screen
     class ViewHolder extends RecyclerView.ViewHolder {

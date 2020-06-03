@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -86,17 +87,17 @@ public class ShoppingList extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 runMutation();
-
             }
         });
 
-       /** ImageButton btnDeleteItem = (ImageButton) findViewById(R.id.btn_main_line_delete);
+        ImageButton btnDeleteItem = (ImageButton) findViewById(R.id.btn_main_line_delete);
         btnDeleteItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
-        });**/
+        });
+
     }
 
     @Override
@@ -118,7 +119,6 @@ public class ShoppingList extends AppCompatActivity {
         mAWSAppSyncClient.mutate(CreateShoppingListMutation.builder().input(createShoppingListInput).build())
                 .enqueue(mutationCallback);
 
-        textInput.getText().clear();
     }
 
     private GraphQLCall.Callback<CreateShoppingListMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateShoppingListMutation.Data>() {
@@ -164,6 +164,58 @@ public class ShoppingList extends AppCompatActivity {
         }
     };
 
+/**
+   public void runQueryItemID(String itemID){
+        itemID = mAdapter.
+       mAWSAppSyncClient.query(GetShoppingListQuery.builder()
+               .id()
+               .build())
+               .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
+               .enqueue(queryGetItemCallback);
+    }
+
+    private GraphQLCall.Callback<GetShoppingListQuery.Data> queryGetItemCallback = new GraphQLCall.Callback<GetShoppingListQuery.Data>() {
+
+        @Override
+        public void onResponse(@Nonnull Response<GetShoppingListQuery.Data> response) {
+
+            if (response.data().getShoppingList() != null) {
+                Log.i("Results", response.data().getShoppingList().toString());
+            }
+            else {
+                Log.e("ERROR", "error in querying the item");
+            }
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("ERROR", e.toString());
+        }
+    };
+
+
+    public void runMutationDelete(){
+        final String item = ((TextInputEditText) findViewById(R.id.ti_removeItem)).getText().toString();
+        final String itemID = mAdapter.removeItem(item);
+        DeleteShoppingListInput deleteShoppingListInput = DeleteShoppingListInput.builder()
+                .id()
+                .build();
+
+        mAWSAppSyncClient.mutate(DeleteShoppingListInput.builder().)
+                .enqueue(mutationDeleteCallback);
+    }
+    private GraphQLCall.Callback<DeleteShoppingListInput.Builder> mutationDeleteCallback = new GraphQLCall.Callback<DeleteShoppingListInput.Builder>() {
+        @Override
+        public void onResponse(@Nonnull Response<DeleteShoppingListInput.Builder> response) {
+            Log.i("Results", "Item deleted");
+            runQuery();
+        }
+
+        @Override
+        public void onFailure(@Nonnull ApolloException e) {
+            Log.e("Error", e.toString());
+        }
+    };**/
 
 }
 
