@@ -119,6 +119,8 @@ public class ShoppingList extends AppCompatActivity {
                 .enqueue(mutationCallback);
 
         textInput.getText().clear();
+
+
     }
 
     private GraphQLCall.Callback<CreateShoppingListMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateShoppingListMutation.Data>() {

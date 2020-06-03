@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CalendarAddEvent"></activity>
+        <activity android:name=".AddCalenderNewMethod"></activity>
+        <activity android:name=".CalendarAddEvent" />
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />
 
