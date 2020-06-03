@@ -1,7 +1,6 @@
 package com.example.wgplaner;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,12 +10,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.amazonaws.amplify.generated.graphql.CreateCalendarMutation;
-import com.amazonaws.amplify.generated.graphql.CreateShoppingListMutation;
 import com.amazonaws.amplify.generated.graphql.ListCalendarsQuery;
-import com.amazonaws.amplify.generated.graphql.ListShoppingListsQuery;
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.UserStateDetails;
@@ -28,7 +24,6 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserPool;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +31,6 @@ import java.util.List;
 import javax.annotation.Nonnull;
 
 import type.CreateCalendarInput;
-import type.CreateShoppingListInput;
 import type.ModelCalendarFilterInput;
 import type.ModelIDInput;
 
