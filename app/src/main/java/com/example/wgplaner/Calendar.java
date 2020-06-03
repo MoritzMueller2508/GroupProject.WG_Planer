@@ -9,6 +9,7 @@ import android.widget.CalendarView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,11 @@ public class Calendar extends AppCompatActivity {
                 this,
                 android.R.layout.simple_list_item_1,
                events);
+
+       /** final Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(view -> onBackPressed());**/
 
 
 

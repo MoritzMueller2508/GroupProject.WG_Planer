@@ -11,13 +11,20 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.amazonaws.amplify.generated.graphql.CreateCalendarMutation;
 import com.amazonaws.amplify.generated.graphql.CreateShoppingListMutation;
 import com.amazonaws.amplify.generated.graphql.ListCalendarsQuery;
 import com.amazonaws.amplify.generated.graphql.ListShoppingListsQuery;
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.Callback;
+import com.amazonaws.mobile.client.UserStateDetails;
+import com.amazonaws.mobile.config.AWSConfiguration;
 import com.amazonaws.mobileconnectors.appsync.AWSAppSyncClient;
 import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
+import com.amazonaws.mobileconnectors.appsync.sigv4.BasicCognitoUserPoolsAuthProvider;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserPool;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
@@ -61,6 +68,30 @@ public class CalendarAddEvent extends AppCompatActivity {
         eventName = (EditText) findViewById(R.id.et_eventName);
         date = (EditText) findViewById(R.id.et_date);
         time = (EditText) findViewById(R.id.et_dateTime);
+
+        AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
+
+            @Override
+            public void onResult(UserStateDetails userStateDetails) {
+                Log.i("INIT", "onResult: " + userStateDetails.getUserState());
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Log.e("INIT", "Initialization error.", e);
+            }
+        });
+        CognitoUserPool mCognitoUserPool = new CognitoUserPool(getApplicationContext(), new AWSConfiguration(getApplicationContext()));
+        mAWSAppSyncClient = AWSAppSyncClient.builder()
+                .context(getApplicationContext())
+                .awsConfiguration(new AWSConfiguration(getApplicationContext()))
+                .cognitoUserPoolsAuthProvider(new BasicCognitoUserPoolsAuthProvider(mCognitoUserPool))
+                .build();
+
+        /**final Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(view -> onBackPressed());**/
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
                 this,
@@ -110,28 +141,12 @@ public class CalendarAddEvent extends AppCompatActivity {
         System.out.println(date_);
         System.out.println(time_);
 
-        if (CreateCalendarMutation.builder().input(createCalendarInput).build() != null)
-            System.out.println("No here it isn't");
-        else
-            System.out.println("Here it is");
-
-        if (mutationCallback == null)
-            System.out.println("mutation it is");
-        else
-            System.out.println("mutation is not the problem");
 
 
 
         mAWSAppSyncClient.mutate(CreateCalendarMutation.builder().input(createCalendarInput).build())
-                .enqueue(mutationCallback); //Here is a big NONO!!! Nullpointer exception
-
-        Log.e("sad", "help");
-
-        eventName.getText().clear();
-        date.getText().clear();
-        time.getText().clear();
-        Log.e("After executing Mutation", "help3");
-    }
+                .enqueue(mutationCallback);
+        }
 
 
     private GraphQLCall.Callback<CreateCalendarMutation.Data> mutationCallback = new GraphQLCall.Callback<CreateCalendarMutation.Data>() {
@@ -139,12 +154,11 @@ public class CalendarAddEvent extends AppCompatActivity {
         public void onResponse(@Nonnull Response<CreateCalendarMutation.Data> response) {
             Log.i("Results", "Added Event");
 
-            runQuery();
+           // runQuery();
         }
 
         @Override
         public void onFailure(@Nonnull ApolloException e) {
-            Log.i("SadNoises", "help");
             Log.e("Error", e.toString());
         }
     };
