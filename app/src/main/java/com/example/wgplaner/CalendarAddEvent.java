@@ -136,9 +136,6 @@ public class CalendarAddEvent extends AppCompatActivity {
         System.out.println(date_);
         System.out.println(time_);
 
-
-
-
         mAWSAppSyncClient.mutate(CreateCalendarMutation.builder().input(createCalendarInput).build())
                 .enqueue(mutationCallback);
         }
